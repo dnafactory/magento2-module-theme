@@ -1,0 +1,11 @@
+<?php
+/** @var $block \Magento\Framework\View\Element\Template */
+?>
+<?php
+    $_url = $block->getBackUrl();
+    $_customIcon = ($block->getCustomIcon()) ? $block->getCustomIcon() : 'icon-arrow-left-thin';
+
+?>
+<div class="back-url-container">
+    <a href="<?= $block->getUrl($_url) ?>" class="action back"><span><i class="<?= $_customIcon ?>"></i></span></a>
+</div>

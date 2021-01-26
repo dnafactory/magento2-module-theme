@@ -11,7 +11,7 @@ use Psr\Log\LoggerInterface;
  * @package DNAFactory\Theme\Observer
  * @author Ciro Arcadio <ciro.arcadio@dnafactory.it>
  *
- * Provides a layout custom handle to define css critical path fallbacks
+ * Provides a custom layout handle to define css critical path fallbacks
  */
 class CssCriticalPathFallbackObserver implements \Magento\Framework\Event\ObserverInterface
 {

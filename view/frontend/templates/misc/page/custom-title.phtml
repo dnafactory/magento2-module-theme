@@ -1,0 +1,19 @@
+<?php
+/** @var $block \Magento\Framework\View\Element\Template */
+?>
+<?php
+$headerEl = ($block->getHeaderEl()) ? $block->getHeaderEl() : 'h3';
+$headerClass = $block->getHeaderClass();
+$customCss = $block->getCustomCss();
+$title = $block->getTitle();
+?>
+<div class="page-content-super-title <?= $customCss ?>">
+    <?= $block->getChildHtml('custom.title.back.url') ?>
+    <div class="title-wrapper">
+        <<?= $headerEl ?> class="<?= $headerClass ?>">
+            <?= __($title) ?>
+            <?= $block->getChildHtml('custom.title.additional.header') ?>
+        </<?= $headerEl ?>>
+        <?= $block->getChildHtml('custom.title.additional.element') ?>
+    </div>
+</div>

@@ -26,7 +26,7 @@ define([
                 center: false,
                 controls: true,
                 controlsPosition: 'top',
-                controlsText: ['prev', 'next'],
+                controlsText: ['',''],
                 controlsContainer: false,
                 prevButton: false,
                 nextButton: false,

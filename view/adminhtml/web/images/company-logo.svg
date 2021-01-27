@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg271"
+   viewBox="0 0 1024 1024"
+   height="1024"
+   width="1024"
+   version="1.1">
+  <defs
+     id="defs275" />
+  <path
+     fill="#fcc00e"
+     id="path257"
+     d="M512 212.126l-259.323 150.187-1.002-1.002-86.111-49.062 346.435-200.249z" />
+  <path
+     fill="#f59e19"
+     id="path259"
+     d="M772.325 662.687v-301.376l86.111-49.062v399.497l-346.435 200.249v-99.123z" />
+  <path
+     fill="#f9b215"
+     id="path261"
+     d="M251.675 361.313v301.376l260.325 150.187v99.123l-346.435-199.248v-400.5z" />
+  <path
+     fill="#f9b215"
+     id="path263"
+     d="M338.788 612.626v-200.249h1.002l86.111 49.062v101.127l86.111 50.062v100.125z" />
+  <path
+     fill="#f59e19"
+     id="path265"
+     d="M599.112 562.562v-101.127l86.111-49.062v200.249l-173.212 100.125v-100.125z" />
+  <path
+     fill="#fcc00e"
+     id="path267"
+     d="M598.111 461.438l-86.111-49.062-86.111 49.062-86.111-49.062 172.212-100.125 87.112 50.062v-200.249l86.111 50.062v200.249l-86.111 49.062z" />
+  <path
+     fill="#fcc00e"
+     id="path269"
+     d="M772.325 361.313v-99.123l86.111 50.062z" />
+</svg>

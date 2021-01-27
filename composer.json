@@ -1,0 +1,31 @@
+{
+  "name": "dnafactory/module-theme",
+  "type": "magento2-module",
+  "description": "",
+  "keywords": ["Magento2", "theme"],
+  "license": [
+    "BSD-3-Clause"
+  ],
+  "require": {
+    "php": "~7.1"
+  },
+  "authors": [
+    {
+      "name": "DNAFactory",
+      "email": "info@dnafactory.it",
+      "homepage": "https://www.dnafactory.it",
+      "role": "Owner"
+    },
+    {
+      "name": "Ciro Arcadio",
+      "email": "ciro.arcadio@dnafactory.it",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "files": [ "registration.php" ],
+    "psr-4": {
+      "DNAFactory\\Theme\\": ""
+    }
+  }
+}

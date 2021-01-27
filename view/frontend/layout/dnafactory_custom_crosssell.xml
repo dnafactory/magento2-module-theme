@@ -1,0 +1,17 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="checkout.cart.items">
+            <block class="DNAFactory\Theme\Block\Cart\Crosssell" name="checkout.cart.crosssell" template="Magento_Catalog::product/list/items.phtml" after="-" ifconfig="checkout/cart/crosssell_enabled">
+                <arguments>
+                    <argument name="type" xsi:type="string">crosssell</argument>
+                    <argument name="view_model" xsi:type="object">Magento\Catalog\ViewModel\Product\Listing\PreparePostData</argument>
+                </arguments>
+                <block class="Magento\Catalog\Block\Product\ProductList\Item\Container" name="crosssell.product.addto" as="addto">
+                    <block class="Magento\Catalog\Block\Product\ProductList\Item\AddTo\Compare"
+                           name="crosssell.product.addto.compare" as="compare"
+                           template="Magento_Catalog::product/list/addto/compare.phtml"/>
+                </block>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

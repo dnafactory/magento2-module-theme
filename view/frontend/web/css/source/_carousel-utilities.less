@@ -1,0 +1,305 @@
+@carousel-nav__cursor: @button__cursor;
+@carousel-nav__display: @button__display;
+@carousel-nav__disabled__opacity: @button__disabled__opacity;
+@carousel-nav__font-family: @button__font-family;
+@carousel-nav__font-size: @button__font-size;
+@carousel-nav__font-weight: @button__font-weight;
+@carousel-nav__line-height: @button__line-height;
+@carousel-nav__width: @button__width;
+@carousel-nav__margin: @button__margin;
+@carousel-nav__padding: @button__padding;
+@carousel-nav__gradient: @button__gradient;
+@carousel-nav__gradient-direction: @button__gradient-direction;
+
+@carousel-nav__background: @button__background;
+@carousel-nav__border: @button__border;
+@carousel-nav__color: @button__color;
+@carousel-nav__gradient-color-start: @button__gradient-color-start;
+@carousel-nav__gradient-color-end: @button__gradient-color-start;
+
+@carousel-nav__hover__background: @button__hover__background;
+@carousel-nav__hover__border: @button__hover__border;
+@carousel-nav__hover__color: @button__hover__color;
+@carousel-nav__hover__gradient-color-start: @button__hover__gradient-color-start;
+@carousel-nav__hover__gradient-color-end: @button__hover__gradient-color-end;
+
+@carousel-nav__active__background: @button__active__background;
+@carousel-nav__active__border: @button__active__border;
+@carousel-nav__active__color: @button__active__color;
+@carousel-nav__active__gradient-color-start: @button__active__gradient-color-start;
+@carousel-nav__active__gradient-color-end: @button__active__gradient-color-end;
+
+@carousel-nav-icon__use: true;
+@carousel-nav-icon__next__content: @icon-next;
+@carousel-nav-icon__prev__content: @icon-prev;
+@carousel-nav-icon__font: @button-icon__font;
+@carousel-nav-icon__font-size: @button-icon__font-size;
+@carousel-nav-icon__line-height: @button-icon__line-height;
+@carousel-nav-icon__color: @button-icon__color;
+@carousel-nav-icon__hover__font-color: @button-icon__hover__font-color;
+@carousel-nav-icon__active__font-color: @button-icon__active__font-color;
+@carousel-nav-icon__margin: @button-icon__margin;
+@carousel-nav-icon__vertical-align: @button-icon__vertical-align;
+@carousel-nav-icon__position: @button-icon__position;
+@carousel-nav-icon__text-hide: @button-icon__text-hide;
+
+
+@carousel-dots__cursor: @button__cursor;
+@carousel-dots__display: @button__display;
+@carousel-dots__disabled__opacity: @button__disabled__opacity;
+@carousel-dots__font-family: @button__font-family;
+@carousel-dots__font-size: @button__font-size;
+@carousel-dots__font-weight: @button__font-weight;
+@carousel-dots__line-height: 10px;//@button__line-height;
+@carousel-dots__width: 10px;
+@carousel-dots__margin: 0 5px;
+@carousel-dots__padding: 4px;
+@carousel-dots__gradient: @button__gradient;
+@carousel-dots__gradient-direction: @button__gradient-direction;
+
+@carousel-dots__background: @button__background;
+@carousel-dots__border: @button__border;
+@carousel-dots__color: @button__color;
+@carousel-dots__gradient-color-start: @button__gradient-color-start;
+@carousel-dots__gradient-color-end: @button__gradient-color-start;
+
+@carousel-dots__hover__background: @button__hover__background;
+@carousel-dots__hover__border: @button__hover__border;
+@carousel-dots__hover__color: @button__hover__color;
+@carousel-dots__hover__gradient-color-start: @button__hover__gradient-color-start;
+@carousel-dots__hover__gradient-color-end: @button__hover__gradient-color-end;
+
+@carousel-dots__active__background: @button__active__background;
+@carousel-dots__active__border: @button__active__border;
+@carousel-dots__active__color: @button__active__color;
+@carousel-dots__active__gradient-color-start: @button__active__gradient-color-start;
+@carousel-dots__active__gradient-color-end: @button__active__gradient-color-end;
+
+@carousel-dots-icon__use: false;
+@carousel-dots-icon__content: @icon-next;
+@carousel-dots-icon__font: @button-icon__font;
+@carousel-dots-icon__font-size: @button-icon__font-size;
+@carousel-dots-icon__line-height: @button-icon__line-height;
+@carousel-dots-icon__color: @button-icon__color;
+@carousel-dots-icon__hover__font-color: @button-icon__hover__font-color;
+@carousel-dots-icon__active__font-color: @button-icon__active__font-color;
+@carousel-dots-icon__margin: @button-icon__margin;
+@carousel-dots-icon__vertical-align: @button-icon__vertical-align;
+@carousel-dots-icon__position: @button-icon__position;
+@carousel-dots-icon__text-hide: @button-icon__text-hide;
+
+
+.dna-carousel(){
+  position: relative;
+  .tns-controls{
+    position: absolute;
+    height: 0;
+    top: 50%;
+    left:0;
+    right: 0;
+    z-index: @z-index-1;
+    [aria-controls], [data-action]{
+      position: relative;
+      transform: translateY(-50%);
+      &[data-controls=prev]{
+        float: left;
+        .dna-carousel-navigation-variant(@_button-font-content: @carousel-nav-icon__prev__content);
+      }
+      &[data-controls=next]{
+        .dna-carousel-navigation-variant(@_button-font-content: @carousel-nav-icon__next__content);
+        float: right;
+      }
+    }
+  }
+  margin-bottom: @carousel-dots__line-height*2;
+  .tns-nav{
+    text-align: center;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: @carousel-dots__line-height*2;
+    [aria-controls], [data-action]{
+      .dna-carousel-dots-variant();
+    }
+  }
+}
+.dna-carousel-navigation-variant(
+    @_button-font-family: @carousel-nav__font-family,
+    @_button-font-size: @carousel-nav__font-size,
+    @_button-font-weight: @carousel-nav__font-weight,
+    @_button-cursor: @carousel-nav__cursor,
+    @_button-display: @carousel-nav__display,
+    @_button-disabled-opacity: @carousel-nav__disabled__opacity,
+    @_button-line-height: @carousel-nav__line-height,
+    @_button-width: @carousel-nav__width,
+    @_button-margin: @carousel-nav__margin,
+    @_button-padding: @carousel-nav__padding,
+    @_button-color: @carousel-nav__color,
+    @_button-background: @carousel-nav__background,
+    @_button-border: @carousel-nav__border,
+
+    @_button-color-hover: @carousel-nav__hover__color,
+    @_button-background-hover: @carousel-nav__hover__background,
+    @_button-border-hover: @carousel-nav__hover__border,
+    @_button-color-active: @carousel-nav__active__color,
+    @_button-background-active: @carousel-nav__active__background,
+    @_button-border-active: @carousel-nav__active__border,
+
+    @_button-gradient: @carousel-nav__gradient,
+    @_button-gradient-direction: @carousel-nav__gradient-direction,
+    @_button-gradient-color-start: @carousel-nav__gradient-color-start,
+    @_button-gradient-color-end: @carousel-nav__gradient-color-end,
+    @_button-gradient-color-start-hover: @carousel-nav__hover__gradient-color-start,
+    @_button-gradient-color-end-hover: @carousel-nav__hover__gradient-color-end,
+    @_button-gradient-color-start-active: @carousel-nav__active__gradient-color-start,
+    @_button-gradient-color-end-active: @carousel-nav__active__gradient-color-end,
+
+    @_button-icon-use: @carousel-nav-icon__use,
+    @_button-font-content: @carousel-nav-icon__next__content,
+    @_button-icon-font: @carousel-nav-icon__font,
+    @_button-icon-font-size: @carousel-nav-icon__font-size,
+    @_button-icon-font-line-height: @carousel-nav-icon__line-height,
+    @_button-icon-font-color: @carousel-nav-icon__color,
+    @_button-icon-font-color-hover: @carousel-nav-icon__hover__font-color,
+    @_button-icon-font-color-active: @carousel-nav-icon__active__font-color,
+    @_button-icon-font-margin: @carousel-nav-icon__margin,
+    @_button-icon-font-vertical-align: @carousel-nav-icon__vertical-align,
+    @_button-icon-font-position: @carousel-nav-icon__position,
+    @_button-icon-font-text-hide: @carousel-nav-icon__text-hide
+){
+  .lib-button(
+          @_button-font-family,
+          @_button-font-size,
+          @_button-font-weight,
+          @_button-cursor,
+          @_button-display,
+          @_button-disabled-opacity,
+          @_button-line-height,
+          @_button-width,
+          @_button-margin,
+          @_button-padding,
+          @_button-color,
+          @_button-background,
+          @_button-border,
+
+          @_button-color-hover,
+          @_button-background-hover,
+          @_button-border-hover,
+          @_button-color-active,
+          @_button-background-active,
+          @_button-border-active,
+
+          @_button-gradient,
+          @_button-gradient-direction,
+          @_button-gradient-color-start,
+          @_button-gradient-color-end,
+          @_button-gradient-color-start-hover,
+          @_button-gradient-color-end-hover,
+          @_button-gradient-color-start-active,
+          @_button-gradient-color-end-active,
+
+          @_button-icon-use,
+          @_button-font-content,
+          @_button-icon-font,
+          @_button-icon-font-size,
+          @_button-icon-font-line-height,
+          @_button-icon-font-color,
+          @_button-icon-font-color-hover,
+          @_button-icon-font-color-active,
+          @_button-icon-font-margin,
+          @_button-icon-font-vertical-align,
+          @_button-icon-font-position,
+          @_button-icon-font-text-hide
+  );
+}
+
+.dna-carousel-dots-variant(
+  @_button-font-family: @carousel-dots__font-family,
+  @_button-font-size: @carousel-dots__font-size,
+  @_button-font-weight: @carousel-dots__font-weight,
+  @_button-cursor: @carousel-dots__cursor,
+  @_button-display: @carousel-dots__display,
+  @_button-disabled-opacity: @carousel-dots__disabled__opacity,
+  @_button-line-height: @carousel-dots__line-height,
+  @_button-width: @carousel-dots__width,
+  @_button-margin: @carousel-dots__margin,
+  @_button-padding: @carousel-dots__padding,
+  @_button-color: @carousel-dots__color,
+  @_button-background: @carousel-dots__background,
+  @_button-border: @carousel-dots__border,
+
+  @_button-color-hover: @carousel-dots__hover__color,
+  @_button-background-hover: @carousel-dots__hover__background,
+  @_button-border-hover: @carousel-dots__hover__border,
+  @_button-color-active: @carousel-dots__active__color,
+  @_button-background-active: @carousel-dots__active__background,
+  @_button-border-active: @carousel-dots__active__border,
+
+  @_button-gradient: @carousel-dots__gradient,
+  @_button-gradient-direction: @carousel-dots__gradient-direction,
+  @_button-gradient-color-start: @carousel-dots__gradient-color-start,
+  @_button-gradient-color-end: @carousel-dots__gradient-color-end,
+  @_button-gradient-color-start-hover: @carousel-dots__hover__gradient-color-start,
+  @_button-gradient-color-end-hover: @carousel-dots__hover__gradient-color-end,
+  @_button-gradient-color-start-active: @carousel-dots__active__gradient-color-start,
+  @_button-gradient-color-end-active: @carousel-dots__active__gradient-color-end,
+
+  @_button-icon-use: @carousel-dots-icon__use,
+  @_button-font-content: @carousel-dots-icon__content,
+  @_button-icon-font: @carousel-dots-icon__font,
+  @_button-icon-font-size: @carousel-dots-icon__font-size,
+  @_button-icon-font-line-height: @carousel-dots-icon__line-height,
+  @_button-icon-font-color: @carousel-dots-icon__color,
+  @_button-icon-font-color-hover: @carousel-dots-icon__hover__font-color,
+  @_button-icon-font-color-active: @carousel-dots-icon__active__font-color,
+  @_button-icon-font-margin: @carousel-dots-icon__margin,
+  @_button-icon-font-vertical-align: @carousel-dots-icon__vertical-align,
+  @_button-icon-font-position: @carousel-dots-icon__position,
+  @_button-icon-font-text-hide: @carousel-dots-icon__text-hide
+){
+  .lib-button(
+          @_button-font-family,
+          @_button-font-size,
+          @_button-font-weight,
+          @_button-cursor,
+          @_button-display,
+          @_button-disabled-opacity,
+          @_button-line-height,
+          @_button-width,
+          @_button-margin,
+          @_button-padding,
+          @_button-color,
+          @_button-background,
+          @_button-border,
+
+          @_button-color-hover,
+          @_button-background-hover,
+          @_button-border-hover,
+          @_button-color-active,
+          @_button-background-active,
+          @_button-border-active,
+
+          @_button-gradient,
+          @_button-gradient-direction,
+          @_button-gradient-color-start,
+          @_button-gradient-color-end,
+          @_button-gradient-color-start-hover,
+          @_button-gradient-color-end-hover,
+          @_button-gradient-color-start-active,
+          @_button-gradient-color-end-active,
+
+          @_button-icon-use,
+          @_button-font-content,
+          @_button-icon-font,
+          @_button-icon-font-size,
+          @_button-icon-font-line-height,
+          @_button-icon-font-color,
+          @_button-icon-font-color-hover,
+          @_button-icon-font-color-active,
+          @_button-icon-font-margin,
+          @_button-icon-font-vertical-align,
+          @_button-icon-font-position,
+          @_button-icon-font-text-hide
+  );
+}

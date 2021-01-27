@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="layout_load_before">
+        <observer name="dnafactory_css_critical_path_fallback_handle" instance="DNAFactory\Theme\Observer\CssCriticalPathFallbackObserver" />
+        <observer name="dnafactory_custom_crosssell_max_items_handle" instance="DNAFactory\Theme\Observer\CustomCrosssellHandleObserver" />
+    </event>
+</config>

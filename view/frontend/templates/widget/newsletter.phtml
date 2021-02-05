@@ -13,7 +13,7 @@ $uniqueId = $block->getUniqueId();
         <div class="field required newsletter">
             <label for="newsletter-email-<?= $uniqueId ?>" class="label">
                     <span>
-                        <?= $block->escapeHtml(__('Inserisci indirizzo email')) ?>
+                        <?= $block->escapeHtml(__('Email')) ?>
                     </span>
             </label>
             <input name="email" type="email" id="newsletter-email-<?= $uniqueId ?>"
@@ -28,8 +28,8 @@ $uniqueId = $block->getUniqueId();
             </div>
         <?php endif; ?>
         <button class="action subscribe btn btn-sm btn-primary"
-                title="<?= $block->escapeHtmlAttr(__('Iscriviti')) ?>"
+                title="<?= $block->escapeHtmlAttr(__('Subscribe')) ?>"
                 type="submit"
-                aria-label="Subscribe"><?= $block->escapeHtml(__('Iscriviti')) ?></button>
+                aria-label="Subscribe"><?= $block->escapeHtml(__('Subscribe')) ?></button>
     </fieldset>
 </form>

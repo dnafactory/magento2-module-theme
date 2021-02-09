@@ -1,0 +1,9 @@
+.pagebuilder-column-group {
+  @extend .row;
+}
+
+.pagebuilder-column {
+  &[class^=col-], &[class*= col-] {
+    width: auto !important;
+  }
+}

@@ -1,0 +1,227 @@
+<h2 id="buttons">Text Fields</h2>
+<form class="form" action="#">
+    <div class="row">
+        <div class="col-12 col-md-5">
+            <fieldset class="fieldset" data-hasrequired="* Campi obbligatori">
+                <span class="mt-4 d-block text-muted text-uppercase">Input</span>
+                <hr class="mt-0" />
+                <!-- BLOCK -->
+                <div class="field required">
+                    <label class="label" for="test1"><span>Indirizzo Email</span></label>
+                    <div class="control">
+                        <input name="test1" autocomplete="off" id="test1" type="email" class="input-text" title="Test1" data-validate="{required:true, 'validate-email':true}"  aria-required="true">
+                    </div>
+                </div>
+                <span class="d-block mt-1 text-muted">Enabled</span>
+                <!-- /BLOCK -->
+                <!-- BLOCK -->
+                <div class="field mt-4">
+                    <label class="label" for="test2"><span>Indirizzo Email</span></label>
+                    <div class="control validation-valid-state">
+                        <input name="test2" value="right@text.com" autocomplete="off" id="test2" type="email" class="input-text valid" title="TestSuccess"  aria-required="true">
+                    </div>
+                </div>
+                <span class="d-block mt-1 text-muted">Success</span>
+                <!-- /BLOCK -->
+                <!-- BLOCK -->
+                <div class="field mt-4">
+                    <label class="label" for="test3"><span>Indirizzo Email</span></label>
+                    <div class="control validation-error-state">
+                        <input name="test3" value="wrong text" autocomplete="off" id="test3" type="email" class="input-text mage-error" title="TestError"  aria-required="true">
+                        <div for="test3" generated="true" class="mage-error" id="email-error">Please enter a valid email address (Ex: johndoe@domain.com).</div>
+                    </div>
+                </div>
+                <span class="d-block mt-1 text-muted">Error</span>
+                <!-- /BLOCK -->
+                <!-- BLOCK -->
+                <div class="field mt-4">
+                    <label class="label" for="test4"><span>Indirizzo Email</span></label>
+                    <div class="control">
+                        <input name="test4" disabled autocomplete="off" id="test4" type="email" class="input-text" title="Test4" >
+                    </div>
+                </div>
+                <span class="d-block mt-1 text-muted">Disabled</span>
+                <!-- /BLOCK -->
+                <!-- BLOCK -->
+                <div class="field required mt-4">
+                    <label class="label" for="test5"><span>Password</span></label>
+                    <div class="control">
+                        <input name="test5" autocomplete="off" id="test5" type="password" class="input-text" title="Test5"  data-validate="{required:true}" aria-required="true">
+                    </div>
+                </div>
+                <span class="d-block mt-1 text-muted">Password</span>
+                <!-- /BLOCK -->
+                <!-- BLOCK -->
+                <div class="field mt-4">
+                    <label class="label" for="example-date"><span>Date</span></label>
+                    <div class="control">
+                        <input name="test6" data-widget="date" placeholder="GG/MM/AAAA" id="example-date" autocomplete="off" type="text" class="input-text" title="Test6" >
+                    </div>
+                </div>
+                <span class="d-block mt-1 text-muted">Date</span>
+                <!-- /BLOCK -->
+                <!-- BLOCK -->
+                <span class="mt-4 d-block text-muted text-uppercase">Qty Input</span>
+                <hr class="mt-0" />
+                <div class="field mt-4">
+                    <div class="control input-group-sm qty-wrapper">
+                        <input data-widget="qty" class="text-center font-base" name="qty" inputmode="numeric" pattern="[\d]" placeholder="0" id="qty" type="number" title="qty"  >
+                    </div>
+                </div>
+                <span class="d-block mt-1 text-muted">Enabled</span>
+                <!-- /BLOCK -->
+            </fieldset>
+        </div>
+        <div class="col-12 col-md-5 offset-md-2">
+            <fieldset class="fieldset">
+                <span class="mt-4 d-block text-muted text-uppercase">Input with CTA</span>
+                <hr class="mt-0" />
+                <!-- BLOCK -->
+                <div class="field">
+                    <label class="label" for="test11"><span>Indirizzo Email</span></label>
+                    <div class="control input-group">
+                        <input name="test11" autocomplete="off" id="test11" type="email" class="input-text" title="Test11" data-validate="{required:true, 'validate-email':true}"  aria-required="true">
+                        <div class="input-group-append">
+                            <button class="btn btn-secondary" type="button" id="button-addon2">Invia</button>
+                        </div>
+                    </div>
+                </div>
+                <span class="d-block mt-1 text-muted">Enabled</span>
+                <!-- /BLOCK -->
+                <!-- BLOCK -->
+                <span class="mt-4 d-block text-muted text-uppercase">Input (casi particolari)</span>
+                <hr class="mt-0" />
+                <div class="field">
+                    <div class="control input-group-sm">
+                        <input placeholder="Cerca marchio" name="searchtest" autocomplete="off" id="searchtest" type="text" inputmode="search" class="input-text input-search" title="Cerca marchio"">
+                    </div>
+                </div>
+                <!-- /BLOCK -->
+                <span class="mt-4 d-block text-muted text-uppercase">Select</span>
+                <hr class="mt-0" />
+                <!-- BLOCK -->
+                <div class="field region required mt-4">
+                    <label class="label" for="region_test">
+                        <span>State/Province</span>
+                    </label>
+                    <div class="control">
+                        <select id="region_test" name="region_test" title="State/Province" class="validate-select region_id required-entry" aria-required="true">
+                            <option value=""></option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                            <option value="4" disabled>Option 4</option>
+                            <option value="5">Option 5</option>
+                            <option value="6">Option 6</option>
+                            <option value="7">Option 7</option>
+                            <option value="8">Option 8</option>
+                            <option value="9">Option 9</option>
+                            <option value="10">Option 10</option>
+                        </select>
+                    </div>
+                </div>
+                <span class="d-block mt-1 text-muted">Enabled</span>
+                <!-- /BLOCK -->
+                <!-- BLOCK -->
+                <div class="field region required mt-4">
+                    <label class="label" for="region_test_disabled">
+                        <span>State/Province</span>
+                    </label>
+                    <div class="control">
+                        <select disabled id="region_test_disabled" name="region_test_disabled" title="State/Province" class="validate-select region_id required-entry" aria-required="true">
+                            <option value=""></option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                            <option value="4">Option 4</option>
+                            <option value="5">Option 5</option>
+                            <option value="6">Option 6</option>
+                            <option value="7">Option 7</option>
+                            <option value="8">Option 8</option>
+                            <option value="9">Option 9</option>
+                            <option value="10">Option 10</option>
+                        </select>
+                    </div>
+                </div>
+                <span class="d-block mt-1 text-muted">Disabled</span>
+                <!-- /BLOCK -->
+                <!-- BLOCK -->
+                <div class="field region required mt-4">
+                    <label class="label" for="region_test2">
+                        <span>State/Province</span>
+                    </label>
+                    <div class="control">
+                        <select id="region_test2" name="region_test2" title="State/Province" data-validate="{ 'select':true, 'validate-select':true }" class="validate-select region_id required-entry custom-select-sm custom-dropdown" aria-required="true">
+                            <option value=""></option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                            <option value="4" disabled>Option 4</option>
+                            <option value="5">Option 5</option>
+                            <option value="6">Option 6</option>
+                            <option value="7">Option 7</option>
+                            <option value="8">Option 8</option>
+                            <option value="9">Option 9</option>
+                            <option value="10">Option 10</option>
+                        </select>
+                    </div>
+                </div>
+                <span class="d-block mt-1 text-muted">Small</span>
+                <!-- /BLOCK -->
+                <!-- BLOCK -->
+                <span class="mt-4 d-block text-muted text-uppercase">Checkbox</span>
+                <hr class="mt-0" />
+                <div class="row mb-2">
+                    <div class="col-4">
+                        <div class="pl-0 field">
+                            <input name="checkbox" id="checkbox" type="checkbox" title="Checkbox">
+                            <label class="label" for="checkbox"><span>Unchecked</span></label>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="pl-0 field">
+                            <input name="checkbox2" checked="checked" id="checkbox2" type="checkbox" title="Checkbox">
+                            <label class="label" for="checkbox2"><span>Checked</span></label>
+                        </div>
+                    </div>
+                </div>
+
+                <span class="mt-4 d-block text-muted text-uppercase">Radio</span>
+                <hr class="mt-0" />
+                <div class="row mb-2">
+                    <div class="col-4">
+                        <div class="field">
+                            <input name="radio" id="radio" type="radio" title="Radio">
+                            <label class="label" for="radio"><span>Unchecked</span></label>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="field">
+                            <input name="radio2" checked="checked" id="radio2" type="radio" title="Radio">
+                            <label class="label" for="radio2"><span>Checked</span></label>
+                        </div>
+                    </div>
+                </div>
+
+                <span class="mt-4 d-block text-muted text-uppercase">Switch</span>
+                <hr class="mt-0" />
+                <div class="row mb-2">
+                    <div class="col-4">
+                        <div class="pl-1 field">
+                            <input name="switch" class="custom-switch" id="switch" type="checkbox" title="Switch">
+                            <label class="label" for="switch"><span>Off</span></label>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="pl-1 field">
+                            <input name="switch2" checked="checked" class="custom-switch" id="switch2" type="checkbox" title="Switch">
+                            <label class="label" for="switch2"><span>On</span></label>
+                        </div>
+                    </div>
+                </div>
+                <!-- /BLOCK -->
+            </fieldset>
+        </div>
+    </div>
+</form>
+

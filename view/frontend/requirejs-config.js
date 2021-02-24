@@ -16,6 +16,9 @@ var config = {
         mixins: {
             'DNAFactory_Theme/js/carousels/tiny-slider':{
                 'DNAFactory_Theme/js/carousels/tiny-slider-flexbox-mixin': true
+            },
+            "mage/sticky":{
+                "js/mixins/sticky-mixin": true
             }
         }
     }

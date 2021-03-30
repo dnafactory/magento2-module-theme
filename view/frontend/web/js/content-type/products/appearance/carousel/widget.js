@@ -29,7 +29,7 @@ define([
             carouselMode = $element.data('carousel-mode'),
             sliderConfig = {
                 autoplay: $element.data('autoplay'),
-                speed: $element.data('autoplay-speed') || 0,
+                autoplayTimeout: $element.data('autoplay-speed') || 0,
                 nav: $element.data('show-arrows'),
                 dots: $element.data('show-dots')
             };

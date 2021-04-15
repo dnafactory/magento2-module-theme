@@ -8,8 +8,9 @@ define([
     'matchMedia',
     'Magento_PageBuilder/js/utils/breakpoints',
     'Magento_PageBuilder/js/events',
-    'dnaCarousel'
-], function ($, _, mediaCheck, breakpointsUtils, events, dnaCarousel) {
+    'dnaCarousel',
+    'dna.responsive'
+], function ($, _, mediaCheck, breakpointsUtils, events, dnaCarousel, dnaResponsive) {
     'use strict';
 
     /**
@@ -31,32 +32,62 @@ define([
                 autoplay: $element.data('autoplay'),
                 autoplayTimeout: $element.data('autoplay-speed') || 0,
                 nav: $element.data('show-arrows'),
-                dots: $element.data('show-dots')
-            };
+                dots: $element.data('show-dots'),
+            },
+            responsive = {};
 
         _.each(config.breakpoints, function (breakpoint) {
-            mediaCheck({
-                media: breakpointsUtils.buildMedia(breakpoint.conditions),
+            if (breakpoint.options.products[carouselMode]) {
+                var options = breakpoint.options.products[carouselMode];
+                var breakpointMap = breakpoint.map ? breakpoint.map : 'xxxs';
+                //Use parseInt to remove any letter and get only a numeric value
+                var bp = parseInt(dnaResponsive.getBreakpoint(breakpointMap));
 
-                /** @inheritdoc */
-                entry: function () {
-                    var slidesToShow = breakpoint.options.products[carouselMode] ?
-                        breakpoint.options.products[carouselMode].slidesToShow :
-                        breakpoint.options.products.default.slidesToShow;
-
-                    sliderConfig.items = parseFloat(slidesToShow);
-
-                    if (carouselMode === 'continuous' && productCount > sliderConfig.items) {
-                        sliderConfig.edgePadding = $element.data('center-padding');
-                        sliderConfig.center = true;
-                    } else {
-                        sliderConfig.loop = $element.data('infinite-loop');
+                _.each(options, function (value, key) {
+                    //Force standard magento field to items
+                    if (key === "slidesToShow") {
+                        key = "items";
                     }
 
-                    buildDnaCarousel($carouselElement, sliderConfig);
-                }
-            });
+                    if (!responsive[bp]) {
+                        //Initialize breakpoint array
+                        responsive[bp] = {};
+                    }
+
+                    responsive[bp][key] = value;
+                });
+            }
         });
+
+        sliderConfig.responsive = responsive;
+        var minorBreakpoint = Object.keys(sliderConfig.responsive)[0];
+        //Get first responsive (bp = 0 min) items if default value is undefined
+        if (!sliderConfig.items) {
+            let defaultItems = sliderConfig.responsive[minorBreakpoint].items;
+            sliderConfig.items = (defaultItems) ? defaultItems : 1;
+        }
+
+        if (carouselMode === 'continuous' && productCount > sliderConfig.items) {
+            sliderConfig.edgePadding = $element.data('center-padding');
+            sliderConfig.center = true;
+        } else {
+            sliderConfig.loop = $element.data('infinite-loop');
+        }
+
+        //Initialize bp xxs if not exists
+        if (!sliderConfig.responsive["0"]) {
+            sliderConfig.responsive["0"] = {}
+        }
+
+        //For each default config value (as nav, dots) map them to the last bp (0px) to avoid forced config value
+        /*_.each(defaultConfig, function (value, key) {
+            //If value is undefined, null but NOT FALSE
+            if (!sliderConfig.responsive["0"][key] && sliderConfig.responsive["0"][key] !== false) {
+                sliderConfig.responsive["0"][key] = value;
+            }
+        });*/
+
+        buildDnaCarousel($carouselElement, sliderConfig);
 
         // Redraw slide after content type gets redrawn
         events.on('contentType:redrawAfter', function (args) {

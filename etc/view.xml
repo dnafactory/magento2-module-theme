@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/view.xsd">
+    <vars module="Magento_PageBuilder">
+        <var name="breakpoints">
+            <!-- Map value are processed by dnafactory/theme-frontend-blank/web/js/lib/dna-responsive.js -->
+            <var name="desktop">
+                <var name="map">lg</var> <!-- From MAX to LG -->
+            </var>
+            <var name="tablet">
+                <var name="map">md</var> <!-- From LG to MD -->
+            </var>
+            <var name="mobile">
+                <var name="map">sm</var> <!-- From MD to SM -->
+            </var>
+            <var name="mobile-small">
+                <var name="map">xxxs</var> <!-- From SM to 0 -->
+            </var>
+        </var>
+    </vars>
+</view>

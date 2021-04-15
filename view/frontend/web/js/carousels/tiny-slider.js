@@ -77,9 +77,9 @@ define([
             var mapping = {};
             if('dots' in base){
                 mapping.nav = base.dots;
-                if('nav' in base){
-                    mapping.controls = base.nav;
-                }
+            }
+            if('nav' in base){
+                mapping.controls = base.nav;
             }
             if('margin' in base){
                 mapping.gutter = base.margin;

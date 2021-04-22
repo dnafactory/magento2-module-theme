@@ -47,7 +47,7 @@ define([
          * @private
          */
         _getOptionValue(option){
-            var value = this._super();
+            var value = this._super(option);
             return (option === 'spacingTop')? this._spacingTopWrapperFunction(value) : value;
         },
         /**

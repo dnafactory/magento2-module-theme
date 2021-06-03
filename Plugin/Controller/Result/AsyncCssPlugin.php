@@ -41,43 +41,62 @@ class AsyncCssPlugin
     {
         $content = $subject->getContent();
 
-        if (\is_string($content) && strpos($content, '</body') !== false && $this->scopeConfig->isSetFlag(
-            self::XML_PATH_USE_CSS_CRITICAL_PATH,
-            ScopeInterface::SCOPE_STORE
-        )) {
+        if (\is_string($content) && strpos($content, '</body') !== false ) {
             $cssMatches = [];
-            // add link rel preload to style sheets
-            $content = preg_replace_callback(
-                '@<link\b.*?rel=("|\')stylesheet\1.*?/>@',
-                function ($matches) use (&$cssMatches) {
-                    $cssMatches[] = $matches[0];
-                    preg_match('@href=("|\')(.*?)\1@', $matches[0], $hrefAttribute);
-                    $href = $hrefAttribute[2];
-                    if (preg_match('@media=("|\')(.*?)\1@', $matches[0], $mediaAttribute)) {
-                        $media = $mediaAttribute[2];
-                    }
-                    $media = $media ?? 'all';
-                    // this quick fix prevents some google page speed warnings
-                    $loadCssAsync = sprintf(
-                        '<link rel="preload" as="style" media="%s" .
+            if($this->scopeConfig->isSetFlag(
+                self::XML_PATH_USE_CSS_CRITICAL_PATH,
+                ScopeInterface::SCOPE_STORE
+            )) {
+                // add link rel preload to style sheets
+                $content = preg_replace_callback(
+                    '@<link\b.*?rel=("|\')stylesheet\1.*?/>@',
+                    function ($matches) use (&$cssMatches) {
+                        $cssMatches[] = $matches[0];
+                        preg_match('@href=("|\')(.*?)\1@', $matches[0], $hrefAttribute);
+                        $href = $hrefAttribute[2];
+                        if (preg_match('@media=("|\')(.*?)\1@', $matches[0], $mediaAttribute)) {
+                            $media = $mediaAttribute[2];
+                        }
+                        $media = $media ?? 'all';
+                        // this quick fix prevents some google page speed warnings
+                        $loadCssAsync = sprintf(
+                            '<link rel="preload" as="style" media="%s" .
                          onload="this.onload=null;this.rel=\'stylesheet\'"' .
-                        'href="%s"><noscript><link rel="stylesheet" media="%s" href="%s"></noscript>',
-                        $media,
-                        $href,
-                        $media,
-                        $href
-                    );
+                            'href="%s"><noscript><link rel="stylesheet" media="%s" href="%s"></noscript>',
+                            $media,
+                            $href,
+                            $media,
+                            $href
+                        );
 
-                    return $loadCssAsync;
-                },
-                $content
-            );
+                        return $loadCssAsync;
+                    },
+                    $content
+                );
+            }else{
+                $criticalLink = '';
+                $content = preg_replace_callback(
+                    '@<link.+\/critical\.css.+/>@',
+                    function($matches) use (&$criticalLink){
+                        $criticalLink = isset($matches[0])? $matches[0] : '';
+                        return '';
+                    },
+                    $content
+                );
+                $content = preg_replace_callback('@<link.+\/styles-m\.css.+/>@',
+                    function($matches) use ($criticalLink){
+                        if(isset($matches[0])){
+                            return "$criticalLink $matches[0]";
+                        }
+                    },
+                    $content);
+            }
 
             if (!empty($cssMatches)) {
                 // we're putting all custom content in the head instead of pushing it into the body
                 $content = str_replace('<head>', "<head>\n".implode("\n", $cssMatches), $content);
-                $subject->setContent($content);
             }
+            $subject->setContent($content);
         }
     }
 }

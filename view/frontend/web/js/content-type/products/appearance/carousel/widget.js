@@ -79,14 +79,6 @@ define([
             sliderConfig.responsive["0"] = {}
         }
 
-        //For each default config value (as nav, dots) map them to the last bp (0px) to avoid forced config value
-        /*_.each(defaultConfig, function (value, key) {
-            //If value is undefined, null but NOT FALSE
-            if (!sliderConfig.responsive["0"][key] && sliderConfig.responsive["0"][key] !== false) {
-                sliderConfig.responsive["0"][key] = value;
-            }
-        });*/
-
         buildDnaCarousel($carouselElement, sliderConfig);
 
         // Redraw slide after content type gets redrawn

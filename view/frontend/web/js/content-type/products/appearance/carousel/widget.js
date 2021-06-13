@@ -32,9 +32,14 @@ define([
                 autoplay: $element.data('autoplay'),
                 autoplayTimeout: $element.data('autoplay-speed') || 0,
                 nav: $element.data('show-arrows'),
-                dots: $element.data('show-dots'),
+                dots: $element.data('show-dots')
             },
             responsive = {};
+
+        if ($element.data('is-full-width')) {
+            sliderConfig.innerWrapperClass = 'mx-auto container-fixed-lg';
+            sliderConfig.middleWrapperClass = 'full-width-container overflow-hidden';
+        }
 
         _.each(config.breakpoints, function (breakpoint) {
             if (breakpoint.options.products[carouselMode]) {

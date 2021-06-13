@@ -35,6 +35,11 @@ define([
                 responsive: false
             };
 
+        if ($element.data('is-full-width')) {
+            sliderConfig.outerWrapperClass = 'overflow-visible';
+            sliderConfig.middleWrapperClass = 'full-width-container';
+        }
+
         buildDnaCarousel($element, sliderConfig);
 
         // Redraw slide after content type gets redrawn

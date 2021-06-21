@@ -305,52 +305,58 @@
         @_button-icon-font-position: @dots-icon__position,
         @_button-icon-font-text-hide: @dots-icon__text-hide
       );
+
+      &.tns-nav-active{
+        .lib-css(background, @dots__active__background);
+        .lib-css(border, @dots__active__border);
+        .lib-css(color, @dots__active__color);
+      }
     }
   }
 }
 .dna-carousel-navigation-variant(
-    @_button-font-family: @carousel-nav__font-family,
-    @_button-font-size: @carousel-nav__font-size,
-    @_button-font-weight: @carousel-nav__font-weight,
-    @_button-cursor: @carousel-nav__cursor,
-    @_button-display: @carousel-nav__display,
-    @_button-disabled-opacity: @carousel-nav__disabled__opacity,
-    @_button-line-height: @carousel-nav__line-height,
-    @_button-width: @carousel-nav__width,
-    @_button-margin: @carousel-nav__margin,
-    @_button-padding: @carousel-nav__padding,
-    @_button-color: @carousel-nav__color,
-    @_button-background: @carousel-nav__background,
-    @_button-border: @carousel-nav__border,
+  @_button-font-family: @carousel-nav__font-family,
+  @_button-font-size: @carousel-nav__font-size,
+  @_button-font-weight: @carousel-nav__font-weight,
+  @_button-cursor: @carousel-nav__cursor,
+  @_button-display: @carousel-nav__display,
+  @_button-disabled-opacity: @carousel-nav__disabled__opacity,
+  @_button-line-height: @carousel-nav__line-height,
+  @_button-width: @carousel-nav__width,
+  @_button-margin: @carousel-nav__margin,
+  @_button-padding: @carousel-nav__padding,
+  @_button-color: @carousel-nav__color,
+  @_button-background: @carousel-nav__background,
+  @_button-border: @carousel-nav__border,
 
-    @_button-color-hover: @carousel-nav__hover__color,
-    @_button-background-hover: @carousel-nav__hover__background,
-    @_button-border-hover: @carousel-nav__hover__border,
-    @_button-color-active: @carousel-nav__active__color,
-    @_button-background-active: @carousel-nav__active__background,
-    @_button-border-active: @carousel-nav__active__border,
+  @_button-color-hover: @carousel-nav__hover__color,
+  @_button-background-hover: @carousel-nav__hover__background,
+  @_button-border-hover: @carousel-nav__hover__border,
+  @_button-color-active: @carousel-nav__active__color,
+  @_button-background-active: @carousel-nav__active__background,
+  @_button-border-active: @carousel-nav__active__border,
 
-    @_button-gradient: @carousel-nav__gradient,
-    @_button-gradient-direction: @carousel-nav__gradient-direction,
-    @_button-gradient-color-start: @carousel-nav__gradient-color-start,
-    @_button-gradient-color-end: @carousel-nav__gradient-color-end,
-    @_button-gradient-color-start-hover: @carousel-nav__hover__gradient-color-start,
-    @_button-gradient-color-end-hover: @carousel-nav__hover__gradient-color-end,
-    @_button-gradient-color-start-active: @carousel-nav__active__gradient-color-start,
-    @_button-gradient-color-end-active: @carousel-nav__active__gradient-color-end,
+  @_button-gradient: @carousel-nav__gradient,
+  @_button-gradient-direction: @carousel-nav__gradient-direction,
+  @_button-gradient-color-start: @carousel-nav__gradient-color-start,
+  @_button-gradient-color-end: @carousel-nav__gradient-color-end,
+  @_button-gradient-color-start-hover: @carousel-nav__hover__gradient-color-start,
+  @_button-gradient-color-end-hover: @carousel-nav__hover__gradient-color-end,
+  @_button-gradient-color-start-active: @carousel-nav__active__gradient-color-start,
+  @_button-gradient-color-end-active: @carousel-nav__active__gradient-color-end,
 
-    @_button-icon-use: @carousel-nav-icon__use,
-    @_button-font-content: @carousel-nav-icon__next__content,
-    @_button-icon-font: @carousel-nav-icon__font,
-    @_button-icon-font-size: @carousel-nav-icon__font-size,
-    @_button-icon-font-line-height: @carousel-nav-icon__line-height,
-    @_button-icon-font-color: @carousel-nav-icon__color,
-    @_button-icon-font-color-hover: @carousel-nav-icon__hover__font-color,
-    @_button-icon-font-color-active: @carousel-nav-icon__active__font-color,
-    @_button-icon-font-margin: @carousel-nav-icon__margin,
-    @_button-icon-font-vertical-align: @carousel-nav-icon__vertical-align,
-    @_button-icon-font-position: @carousel-nav-icon__position,
-    @_button-icon-font-text-hide: @carousel-nav-icon__text-hide
+  @_button-icon-use: @carousel-nav-icon__use,
+  @_button-font-content: @carousel-nav-icon__next__content,
+  @_button-icon-font: @carousel-nav-icon__font,
+  @_button-icon-font-size: @carousel-nav-icon__font-size,
+  @_button-icon-font-line-height: @carousel-nav-icon__line-height,
+  @_button-icon-font-color: @carousel-nav-icon__color,
+  @_button-icon-font-color-hover: @carousel-nav-icon__hover__font-color,
+  @_button-icon-font-color-active: @carousel-nav-icon__active__font-color,
+  @_button-icon-font-margin: @carousel-nav-icon__margin,
+  @_button-icon-font-vertical-align: @carousel-nav-icon__vertical-align,
+  @_button-icon-font-position: @carousel-nav-icon__position,
+  @_button-icon-font-text-hide: @carousel-nav-icon__text-hide
 ){
   .lib-button(
           @_button-font-family,

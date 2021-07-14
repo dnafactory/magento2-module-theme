@@ -3,6 +3,8 @@
     <preference for="DNAFactory\Theme\Api\ConfigurationInterface" type="DNAFactory\Theme\Helper\Configuration" />
     <preference for="DNAFactory\Theme\Api\ThemeConfigurationInterface" type="DNAFactory\Theme\Helper\ThemeConfiguration" />
 
+    <preference for="DNAFactory\Theme\Api\DeployManagementInterface" type="DNAFactory\Theme\Management\DeployManagement" />
+
     <type name="Magento\PageBuilder\Model\WidgetInitializerConfig">
         <arguments>
             <argument name="config" xsi:type="array">

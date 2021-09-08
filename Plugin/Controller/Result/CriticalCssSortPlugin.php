@@ -45,18 +45,18 @@ class CriticalCssSortPlugin
                 $content = preg_replace_callback(
                     '@<link.+\/critical\.css.+/>@',
                     function($matches) use (&$criticalLink){
-                        $criticalLink = isset($matches[0])? $matches[0] : '';
+                        $criticalLink .= isset($matches[0])? $matches[0] : '';
                         return '';
                     },
                     $content
                 );
-                $content = preg_replace_callback('@<link.+\/styles-m\.css.+/>@',
+                $content = preg_replace_callback('@<link.+\.css.+/>@',
                     function($matches) use ($criticalLink){
                         if(isset($matches[0])){
                             return "$criticalLink $matches[0]";
                         }
                     },
-                    $content);
+                    $content, 1);
             }
 
             $subject->setContent($content);

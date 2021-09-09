@@ -10,7 +10,9 @@ var config = {
     },
     paths:{
         tinySlider: 'DNAFactory_Theme/js/carousels/tiny-slider',
-        owlCarousel: 'DNAFactory_Theme/js/carousels/owl-carousel'
+        owlCarousel: 'DNAFactory_Theme/js/carousels/owl-carousel',
+        slickCarousel: 'DNAFactory_Theme/js/carousels/slick-carousel',
+        slick: 'DNAFactory_Theme/js/vendor/slick/slick.min'
     },
     config: {
         mixins: {

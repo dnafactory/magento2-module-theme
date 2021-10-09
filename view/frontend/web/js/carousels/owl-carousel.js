@@ -52,7 +52,7 @@ define([
          * @returns {*}
          */
         pause(){
-            return this.getInstance.trigger('stop.owl.autoplay');
+            return this.getInstance().trigger('stop.owl.autoplay');
         },
         /**
          * Manually skip to slide n

@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <type name="Magento\Framework\App\Response\Http">
-        <!-- We disable the default asyncCss plugin and replace his features with our customs -->
-        <plugin name="asyncCssLoad" disabled="true"/>
-        <plugin name="customAsyncCssLoad" type="DNAFactory\Theme\Plugin\Controller\Result\AsyncCssPlugin"/>
+        <plugin name="criticalCssSort" type="DNAFactory\Theme\Plugin\Controller\Result\CriticalCssSortPlugin"/>
     </type>
 </config>

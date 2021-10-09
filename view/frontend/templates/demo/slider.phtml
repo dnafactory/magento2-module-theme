@@ -1,0 +1,296 @@
+<?php
+    function addEmmetCode($code){
+        echo "<div class='full-width-container bg-light'><div class='page-main'><div class='border-0 mt-3 mb-5' data-mage-init='{\"collapsible\":{
+            \"openedState\": \"active\",
+            \"collapsible\": true,
+            \"active\": false,
+            \"animate\":{ \"duration\" :300}}}'>
+<div class='card-header border-0 bg-light text-secondary' data-role='title'>Emmet code</div>
+<div class='card-body p-0' data-role='content'>
+    <code class=\"p-4 d-block bg-light text-dark text-wrap\">${code}</code>
+</div>
+</div></div></div>";
+    }
+
+    function addAlert($text){
+        echo '<div class="alert alert-warning text-muted">'.$text.'</div>';
+    }
+?>
+
+
+<h2 class="mt-4">Slider</h2>
+<h3>Full width</h3>
+<div class="full-width-container flex-row d-flex flex-nowrap overflow-hidden"
+     data-mage-init="{ &quot;dnaCarousel&quot;: { &quot;outerWrapperClass&quot;:&quot;overflow-visible&quot;, &quot;middleWrapperClass&quot;:&quot;full-width-container&quot;, &quot;items&quot;: 1, &quot;responsive&quot;: false, &quot;nav&quot;:true, &quot;controls&quot;:true }}">
+    <img src="https://via.placeholder.com/1456x300?text=Slide+01" alt="" class="col-12 px-0">
+    <img src="https://via.placeholder.com/1456x300?text=Slide+02" alt="" class="col-12 px-0">
+    <img src="https://via.placeholder.com/1456x300?text=Slide+03" alt="" class="col-12 px-0">
+</div>
+<br class="mt-5"/>
+<?php addEmmetCode('.full-width-container.flex-row.d-flex.flex-nowrap.overflow-hidden[data-mage-init={ "dnaCarousel": { "outerWrapperClass":"overflow-visible", "middleWrapperClass":"full-width-container", "items": 1, "responsive": false, "nav":true, "controls":true }}]>img[src="https://via.placeholder.com/1456x300?text=Slide+$$"].col-12.px-0*3'); ?>
+
+<h3>Boxed</h3>
+<div class="flex-row d-flex flex-nowrap overflow-hidden"
+     data-mage-init="{ &quot;dnaCarousel&quot;: { &quot;items&quot;: 1, &quot;responsive&quot;: false, &quot;nav&quot;:true, &quot;controls&quot;:true }}">
+    <img src="https://via.placeholder.com/1456x300?text=Slide+01" alt="" class="col-12 px-0">
+    <img src="https://via.placeholder.com/1456x300?text=Slide+02" alt="" class="col-12 px-0">
+    <img src="https://via.placeholder.com/1456x300?text=Slide+03" alt="" class="col-12 px-0">
+</div>
+<br class="mt-5"/>
+<?php addEmmetCode('flex-row.d-flex.flex-nowrap.overflow-hidden[data-mage-init={ "dnaCarousel": { "items": 1, "responsive": false, "nav":true, "controls":true }}]>img[src="https://via.placeholder.com/1456x300?text=Slide+$$"].col-12.px-0*3'); ?>
+
+<hr class="separator my-5">
+<h2>Carousels</h2>
+
+<h3>Base Carousel</h3>
+<div class="alert alert-warning text-muted">
+    Le classi "col-*" definiscono il layout del carosello prima ancora che il js venga caricato ed inizializzato.
+    Evita il layout shift e per questo è molto importante una buona definizione, congrua con la configurazione
+    del carosello.
+</div>
+<div class="row d-block">
+    <div class="flex-row d-flex flex-nowrap overflow-hidden"
+         data-mage-init="{ &quot;dnaCarousel&quot;: { &quot;innerWrapperClass&quot;:&quot;w-100&quot;, &quot;items&quot;: 2, &quot;dots&quot;:true, &quot;controls&quot;:false, &quot;responsive&quot;: { &quot;sm&quot;:{ &quot;items&quot;:3, &quot;dots&quot;:false, &quot;controls&quot;:true }, &quot;md&quot;:{ &quot;items&quot;:4 }, &quot;lg&quot;:{ &quot;items&quot;:6 } } }}">
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="text-white bg-secondary px-4 py-5">Slide 1: Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Alias, et.
+            </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="text-white bg-secondary px-4 py-5">Slide 2: Deleniti deserunt eius enim harum, ipsam possimus tempora
+                voluptas voluptate.
+            </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="text-white bg-secondary px-4 py-5">Slide 3: Enim modi pariatur temporibus. Accusantium dicta magnam
+                nihil provident sapiente.
+            </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="text-white bg-secondary px-4 py-5">Slide 4: Corporis dolor iste nam numquam quaerat ratione vel
+                voluptates? In?
+            </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="text-white bg-secondary px-4 py-5">Slide 5: Ad aliquam autem corporis cupiditate dignissimos esse ex
+                nemo sequi.
+            </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="text-white bg-secondary px-4 py-5">Slide 6: Accusantium ad asperiores cum debitis error laborum
+                praesentium similique tempore.
+            </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="text-white bg-secondary px-4 py-5">Slide 7: Amet explicabo facilis incidunt laboriosam omnis quae
+                quaerat saepe vero.
+            </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="text-white bg-secondary px-4 py-5">Slide 8: Dolores facilis, id ipsam iste laudantium perferendis
+                repudiandae suscipit. Possimus.
+            </div>
+        </div>
+    </div>
+</div>
+<?php addEmmetCode('.row.d-block>.flex-row.d-flex.flex-nowrap.overflow-hidden[data-mage-init={ "dnaCarousel": { "innerWrapperClass":"w-100", "items": 2, "dots":true, "controls":false, "responsive": { "sm":{ "items":3, "dots":false, "controls":true }, "md":{ "items":4 }, "lg":{ "items":6 } } }}]>(.col-6.col-sm-4.col-md-3.col-lg-2>.text-white.bg-secondary.px-4.py-5>{Slide $: }+lorem10)*8'); ?>
+
+<h3>Same Height Carousel</h3>
+<?php addAlert('La classe "flex-fill", se coadiuvata da un parent "d-flex" o "d-inline-flex", permette di unificare l\'altezza di tutti gli elementi del carosello, in base al contenuto più alto.'); ?>
+<div class="row d-block">
+    <div class="flex-row d-flex flex-nowrap overflow-hidden"
+         data-mage-init="{ &quot;dnaCarousel&quot;: { &quot;innerWrapperClass&quot;:&quot;w-100&quot;, &quot;items&quot;: 2, &quot;dots&quot;:true, &quot;controls&quot;:false, &quot;responsive&quot;: { &quot;sm&quot;:{ &quot;items&quot;:3, &quot;dots&quot;:false, &quot;controls&quot;:true }, &quot;md&quot;:{ &quot;items&quot;:4 }, &quot;lg&quot;:{ &quot;items&quot;:6 } } }}">
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-inline-flex">
+            <div class="text-white bg-primary px-4 py-5 flex-fill">Slide 1: Lorem ipsum dolor sit amet, consectetur
+                adipisicing elit. Est, suscipit!
+            </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-inline-flex">
+            <div class="text-white bg-primary px-4 py-5 flex-fill">Slide 2: Accusantium alias animi architecto culpa
+                delectus, ea incidunt quia suscipit!
+            </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-inline-flex">
+            <div class="text-white bg-primary px-4 py-5 flex-fill">Slide 3: Ex fuga molestiae molestias odio officia quasi
+                quis sapiente voluptatum. A impedit in inventore, modi quae quisquam
+                soluta tempora ut?
+            </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-inline-flex">
+            <div class="text-white bg-primary px-4 py-5 flex-fill">Slide 4: Asperiores autem deleniti iste maiores,
+                mollitia necessitatibus nihil nulla vitae?
+            </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-inline-flex">
+            <div class="text-white bg-primary px-4 py-5 flex-fill">Slide 5: Ad culpa dolorum incidunt maiores nihil nostrum
+                pariatur perspiciatis quae.
+            </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-inline-flex">
+            <div class="text-white bg-primary px-4 py-5 flex-fill">Slide 6: A autem cupiditate, id nesciunt pariatur
+                recusandae. Consequuntur, earum tenetur!
+            </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-inline-flex">
+            <div class="text-white bg-primary px-4 py-5 flex-fill">Slide 7: Dicta distinctio ex facere fugiat hic, incidunt
+                nobis quisquam unde.
+            </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-inline-flex">
+            <div class="text-white bg-primary px-4 py-5 flex-fill">Slide 8: A impedit in inventore, modi quae quisquam
+                soluta tempora ut?
+            </div>
+        </div>
+    </div>
+</div>
+<?php addEmmetCode('.row.d-block>.flex-row.d-flex.flex-nowrap.overflow-hidden[data-mage-init={ "dnaCarousel": { "innerWrapperClass":"w-100", , "items": 2, "dots":true, "controls":false, "responsive": { "sm":{ "items":3, "dots":false, "controls":true }, "md":{ "items":4 }, "lg":{ "items":6 } } }}]>(.col-6.col-sm-4.col-md-3.col-lg-2.d-inline-flex>.text-white.bg-primary.px-4.py-5.flex-fill>{Slide $: }+lorem10)*8'); ?>
+
+<h3>Full Width/Breakout Carousel</h3>
+<div class="row d-block">
+    <div data-mage-init='{ "dnaCarousel": { "middleWrapperClass":"full-width-container overflow-hidden", "innerWrapperClass":"mx-auto container-fixed-lg", "items": 2, "dots":true, "controls":false, "responsive": { "sm":{ "items":3, "dots":false, "controls":true }, "md":{ "items":4 }, "lg":{ "items":6 } } } }' class="slider flex-row d-flex flex-nowrap overflow-hidden">
+        <div class="slide col-6 col-sm-4 col-md-3 col-lg-2 d-inline-flex">
+            <div class="flex-fill text-white bg-success py-5 px-4">Slide 1</div>
+        </div>
+        <div class="slide col-6 col-sm-4 col-md-3 col-lg-2 d-inline-flex">
+            <div class="flex-fill bg-warning py-5 px-4">Slide 2</div>
+        </div>
+        <div class="slide col-6 col-sm-4 col-md-3 col-lg-2 d-inline-flex">
+            <div class="flex-fill text-white bg-primary py-5 px-4">Slide 3</div>
+        </div>
+        <div class="slide col-6 col-sm-4 col-md-3 col-lg-2 d-inline-flex">
+            <div class="flex-fill text-white bg-secondary py-5 px-4">Slide 4</div>
+        </div>
+        <div class="slide col-6 col-sm-4 col-md-3 col-lg-2 d-inline-flex">
+            <div class="flex-fill text-white bg-success py-5 px-4">Slide 5</div>
+        </div>
+        <div class="slide col-6 col-sm-4 col-md-3 col-lg-2 d-inline-flex">
+            <div class="flex-fill bg-warning py-5 px-4">Slide 6</div>
+        </div>
+        <div class="slide col-6 col-sm-4 col-md-3 col-lg-2 d-inline-flex">
+            <div class="flex-fill text-white bg-primary py-5 px-4">Slide 7</div>
+        </div>
+        <div class="slide col-6 col-sm-4 col-md-3 col-lg-2 d-inline-flex">
+            <div class="flex-fill text-white bg-secondary py-5 px-4">Slide 8</div>
+        </div>
+    </div>
+</div>
+<?php addEmmetCode('.row.d-block>.flex-row.d-flex.flex-nowrap.overflow-hidden[data-mage-init={ "dnaCarousel": { "middleWrapperClass":"full-width-container overflow-hidden", "innerWrapperClass":"mx-auto container-fixed-lg", "items": 2, "dots":true, "controls":false, "responsive": { "sm":{ "items":3, "dots":false, "controls":true }, "md":{ "items":4 }, "lg":{ "items":6 } } }}]>(.col-6.col-sm-4.col-md-3.col-lg-2.d-inline-flex>.text-white.bg-dark.px-4.py-5.flex-fill>{Slide $})*8'); ?>
+
+<h3>Full Width/Breakout Carousel 2</h3>
+<div class="full-width-container overflow-hidden">
+    <div class="page-main">
+        <div class="row flex-row-reverse">
+            <div class="col-6">
+                <div data-mage-init='{ "dnaCarousel": { "middleWrapperClass":"overflow-visible row d-block", "innerWrapperClass":"container-fixed-lg px-lg-0", "items": 2, "dots":true, "controls":false, "responsive": { "sm":{ "items":3, "dots":false, "controls":true }, "md":{ "items":4 }, "lg":{ "items":6 } } }}' class="slider flex-row d-flex flex-nowrap overflow-hidden">
+                    <div class="slide col-6 d-inline-flex">
+                        <div class="flex-fill text-white bg-success py-5 px-4">Slide 1</div>
+                    </div>
+                    <div class="slide col-6 d-inline-flex">
+                        <div class="flex-fill bg-warning py-5 px-4">Slide 2</div>
+                    </div>
+                    <div class="slide col-6 d-inline-flex">
+                        <div class="flex-fill text-white bg-primary py-5 px-4">Slide 3</div>
+                    </div>
+                    <div class="slide col-3 d-inline-flex">
+                        <div class="flex-fill text-white bg-secondary py-5 px-4">Slide 4</div>
+                    </div>
+                    <div class="slide col-3 d-inline-flex">
+                        <div class="flex-fill text-white bg-success py-5 px-4">Slide 5</div>
+                    </div>
+                    <div class="slide col-3 d-inline-flex">
+                        <div class="flex-fill bg-warning py-5 px-4">Slide 6</div>
+                    </div>
+                    <div class="slide col-3 d-inline-flex">
+                        <div class="flex-fill text-white bg-primary py-5 px-4">Slide 7</div>
+                    </div>
+                    <div class="slide col-3 d-inline-flex">
+                        <div class="flex-fill text-white bg-secondary py-5 px-4">Slide 8</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php addEmmetCode('.row.d-block>.flex-row.d-flex.flex-nowrap.overflow-hidden[data-mage-init={ "dnaCarousel": { "middleWrapperClass":"full-width-container overflow-hidden", "innerWrapperClass":"mx-auto container-fixed-lg", "items": 2, "dots":true, "controls":false, "responsive": { "sm":{ "items":3, "dots":false, "controls":true }, "md":{ "items":4 }, "lg":{ "items":6 } } }}]>(.col-6.col-sm-4.col-md-3.d-inline-flex>.text-white.bg-dark.px-4.py-5.flex-fill>{Slide $})*8'); ?>
+
+
+<h3>Cards carousel</h3>
+<div class="row d-block">
+    <div class="flex-row d-flex flex-nowrap overflow-hidden"
+         data-mage-init="{ &quot;dnaCarousel&quot;: { &quot;middleWrapperClass&quot;:&quot;full-width-container overflow-hidden&quot;, &quot;innerWrapperClass&quot;:&quot;mx-auto container-fixed-lg&quot;, &quot;items&quot;: 2, &quot;dots&quot;:true, &quot;controls&quot;:false, &quot;responsive&quot;: { &quot;sm&quot;:{ &quot;items&quot;:3, &quot;dots&quot;:false, &quot;controls&quot;:true }, &quot;md&quot;:{ &quot;items&quot;:4 }, &quot;lg&quot;:{ &quot;items&quot;:6 } } }}">
+        <div class="col-6 col-sm-4 col-md-2 d-inline-flex">
+            <div class="card flex-fill"><img src="https://via.placeholder.com/250" alt="" class="card-img-top">
+                <div class="card-body">
+                    <div class="h3 card-title">Lorem.</div>
+                    <p class="card-text">Lorem ipsum dolor sit amet.</p>
+                </div>
+                <div class="card-footer bg-white border-0"><a href="#" class="btn btn-primary">click</a></div>
+            </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-2 d-inline-flex">
+            <div class="card flex-fill"><img src="https://via.placeholder.com/250" alt="" class="card-img-top">
+                <div class="card-body">
+                    <div class="h3 card-title">Id.</div>
+                    <p class="card-text">Est harum obcaecati pariatur veritatis!</p>
+                </div>
+                <div class="card-footer bg-white border-0"><a href="#" class="btn btn-primary">click</a></div>
+            </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-2 d-inline-flex">
+            <div class="card flex-fill"><img src="https://via.placeholder.com/250" alt="" class="card-img-top">
+                <div class="card-body">
+                    <div class="h3 card-title">In.</div>
+                    <p class="card-text">Laborum odit quasi quia voluptates.</p>
+                </div>
+                <div class="card-footer bg-white border-0"><a href="#" class="btn btn-primary">click</a></div>
+            </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-2 d-inline-flex">
+            <div class="card flex-fill"><img src="https://via.placeholder.com/250" alt="" class="card-img-top">
+                <div class="card-body">
+                    <div class="h3 card-title">Est?</div>
+                    <p class="card-text">Ad dignissimos eaque in nisi.</p>
+                </div>
+                <div class="card-footer bg-white border-0"><a href="#" class="btn btn-primary">click</a></div>
+            </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-2 d-inline-flex">
+            <div class="card flex-fill"><img src="https://via.placeholder.com/250" alt="" class="card-img-top">
+                <div class="card-body">
+                    <div class="h3 card-title">Aliquam.</div>
+                    <p class="card-text">Cumque nostrum odio sit vitae?</p>
+                </div>
+                <div class="card-footer bg-white border-0"><a href="#" class="btn btn-primary">click</a></div>
+            </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-2 d-inline-flex">
+            <div class="card flex-fill"><img src="https://via.placeholder.com/250" alt="" class="card-img-top">
+                <div class="card-body">
+                    <div class="h3 card-title">Ut!</div>
+                    <p class="card-text">Autem nam ratione temporibus veniam.</p>
+                </div>
+                <div class="card-footer bg-white border-0"><a href="#" class="btn btn-primary">click</a></div>
+            </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-2 d-inline-flex">
+            <div class="card flex-fill"><img src="https://via.placeholder.com/250" alt="" class="card-img-top">
+                <div class="card-body">
+                    <div class="h3 card-title">A!</div>
+                    <p class="card-text">Beatae maxime ratione sed vel.</p>
+                </div>
+                <div class="card-footer bg-white border-0"><a href="#" class="btn btn-primary">click</a></div>
+            </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-2 d-inline-flex">
+            <div class="card flex-fill"><img src="https://via.placeholder.com/250" alt="" class="card-img-top">
+                <div class="card-body">
+                    <div class="h3 card-title">Perspiciatis.</div>
+                    <p class="card-text">Debitis enim impedit magni maiores.</p>
+                </div>
+                <div class="card-footer bg-white border-0"><a href="#" class="btn btn-primary">click</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php addEmmetCode('.row.d-block>.flex-row.d-flex.flex-nowrap.overflow-hidden[data-mage-init={ "dnaCarousel": { "middleWrapperClass":"full-width-container overflow-hidden", "innerWrapperClass":"mx-auto container-fixed-lg", "responsive":{ "xs":{"items":2}, "sm":{"items":3, "nav":false,"controls":true}, "md":{"items":6 } } }}]>(.col-6.col-sm-4.col-md-2.d-inline-flex>.card.flex-fill>(img.card-img-top[src=https://via.placeholder.com/250])+(.card-body>(lorem1.h3.card-title+(p.card-text>lorem5)))+.card-footer.bg-white.border-0>a.btn.btn-primary[href=#]>{click})*8'); ?>
+

@@ -77,18 +77,24 @@ define([
             var mapping = {};
             if('dots' in base){
                 mapping.nav = base.dots;
-                if('nav' in base){
-                    mapping.controls = base.nav;
-                }
+            }
+            if('nav' in base){
+                mapping.controls = base.nav;
             }
             if('margin' in base){
                 mapping.gutter = base.margin;
             }
-            if('responsive' in base){
+            if('responsive' in base && base.responsive.length > 0){
                 mapping.responsive = {};
                 Object.keys(base.responsive).forEach(key => {
-                    mapping.responsive[key] = this._mapOptions(base.responsive[key]);
+                    let keyParsed = parseInt(key);
+                    //Check if is NaN
+                    if (!(keyParsed !== keyParsed)) {
+                        mapping.responsive[key] = this._mapOptions(base.responsive[key]);
+                    }
                 });
+            } else {
+                base.responsive = false;
             }
             return Object.assign(base, mapping);
         },

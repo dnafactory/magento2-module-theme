@@ -1,0 +1,35 @@
+<?php
+/** @var \DNAFactory\Theme\Block\Widget\InlineNewsletter $block */
+
+$uniqueId = $block->getUniqueId();
+?>
+<form class="form subscribe"
+    novalidate
+    action="<?= $block->escapeUrl($block->getFormActionUrl()) ?>"
+    method="post"
+    data-mage-init='{"validation": {"errorClass": "mage-error"}}'
+    id="newsletter-validate-detail-<?= $uniqueId ?>">
+    <fieldset class="fieldset">
+        <div class="field required newsletter">
+            <label for="newsletter-email-<?= $uniqueId ?>" class="label">
+                    <span>
+                        <?= $block->escapeHtml(__('Email')) ?>
+                    </span>
+            </label>
+            <input name="email" type="email" id="newsletter-email-<?= $uniqueId ?>"
+                   data-mage-init='{"mage/trim-input":{}}'
+                   data-validate="{required:true, 'validate-email':true}"
+                   class="form-control"/>
+        </div>
+        <?php if ($block->isPrivacyPolicyCheckboxEnabled()) : ?>
+            <div class="field choice policy">
+                <input data-validate="{required:true}" type="checkbox" name="accept_policy" title="<?= $block->escapeHtmlAttr(__('Privacy Policy')) ?>" value="1" id="newsletter-accept_policy-<?= $uniqueId ?>" class="checkbox">
+                <label for="newsletter-accept_policy-<?= $uniqueId ?>" class="label"><?= $block->getPrivacyPolicyText() ?></label>
+            </div>
+        <?php endif; ?>
+        <button class="action subscribe btn btn-sm btn-primary"
+                title="<?= $block->escapeHtmlAttr(__('Subscribe')) ?>"
+                type="submit"
+                aria-label="Subscribe"><?= $block->escapeHtml(__('Subscribe')) ?></button>
+    </fieldset>
+</form>

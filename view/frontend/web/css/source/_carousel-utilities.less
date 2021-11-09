@@ -51,7 +51,7 @@
 @carousel-dots__font-family: @button__font-family;
 @carousel-dots__font-size: @button__font-size;
 @carousel-dots__font-weight: @button__font-weight;
-@carousel-dots__line-height: 10px;//@button__line-height;
+@carousel-dots__line-height: 10px;
 @carousel-dots__width: 10px;
 @carousel-dots__margin: 0 5px;
 @carousel-dots__padding: 4px;
@@ -60,6 +60,7 @@
 
 @carousel-dots__background: @button__background;
 @carousel-dots__border: @button__border;
+@carousel-dots-dot__border-radius: 50%;
 @carousel-dots__color: @button__color;
 @carousel-dots__gradient-color-start: @button__gradient-color-start;
 @carousel-dots__gradient-color-end: @button__gradient-color-start;
@@ -90,6 +91,17 @@
 @carousel-dots-icon__text-hide: @button-icon__text-hide;
 
 
+@carousel-stage__class: ~'.tns-ic';
+@carousel-nav__class: ~'.tns-controls';
+@carousel-nav-controls__class: ~'[aria-controls]';
+@carousel-nav-prev__class: ~'[data-controls=prev]';
+@carousel-nav-next__class: ~'[data-controls=next]';
+@carousel-dots-container__class: ~'.tns-nav';
+@carousel-dots-dot__class: ~'[aria-controls]';
+@carousel-dots-dot-active__class: ~'.tns-nav-active';
+@carousel-nav-disabled__class: false;
+@carousel-nav-active__class: false;
+
 .dna-carousel(
   @nav__cursor: @carousel-nav__cursor,
   @nav__display: @carousel-nav__display,
@@ -116,11 +128,14 @@
   @nav__hover__gradient-color-start: @carousel-nav__hover__gradient-color-start,
   @nav__hover__gradient-color-end: @carousel-nav__hover__gradient-color-end,
 
+  @nav__active__class: @carousel-nav-active__class,
   @nav__active__background: @carousel-nav__active__background,
   @nav__active__border: @carousel-nav__active__border,
   @nav__active__color: @carousel-nav__active__color,
   @nav__active__gradient-color-start: @carousel-nav__active__gradient-color-start,
   @nav__active__gradient-color-end: @carousel-nav__active__gradient-color-end,
+
+  @nav__disabled__class: @carousel-nav-disabled__class,
 
   @nav-icon__use: @carousel-nav-icon__use,
   @nav-icon__next__content: @carousel-nav-icon__next__content,
@@ -152,6 +167,7 @@
 
   @dots__background: @carousel-dots__background,
   @dots__border: @carousel-dots__border,
+  @dots__border-radius: @carousel-dots-dot__border-radius,
   @dots__color: @carousel-dots__color,
   @dots__gradient-color-start: @carousel-dots__gradient-color-start,
   @dots__gradient-color-end: @carousel-dots__gradient-color-end,
@@ -179,19 +195,25 @@
   @dots-icon__margin: @carousel-dots-icon__margin,
   @dots-icon__vertical-align: @carousel-dots-icon__vertical-align,
   @dots-icon__position: @carousel-dots-icon__position,
-  @dots-icon__text-hide: @carousel-dots-icon__text-hide
+  @dots-icon__text-hide: @carousel-dots-icon__text-hide,
+
+
+  @nav__class: @carousel-nav__class,
+  @nav-controls__class: @carousel-nav-controls__class,
+  @nav-prev__class: @carousel-nav-prev__class,
+  @nav-next__class: @carousel-nav-next__class,
+  @dots-container__class: @carousel-dots-container__class,
+  @dots-dot__class: @carousel-dots-dot__class,
+  @dots-dot-active__class: @carousel-dots-dot-active__class
 ){
   position: relative;
-  .tns-controls{
-    position: absolute;
-    height: 0;
-    top: 50%;
-    left:0;
-    right: 0;
-    .lib-css(z-index, @z-index-1);
-    [aria-controls], [data-action]{
-      position: relative;
+  @{nav__class}{
+    .dna-carousel-navigation(@nav__class: @nav__class);
+    @{nav-controls__class}{
+      position: absolute;
+      top: 50%;
       transform: translateY(-50%);
+      .lib-css(z-index, @z-index-1);
       .dna-carousel-navigation-variant(
         @_button-font-family: @nav__font-family,
         @_button-font-size: @nav__font-size,
@@ -236,10 +258,13 @@
         @_button-icon-font-position: @nav-icon__position,
         @_button-icon-font-text-hide: @nav-icon__text-hide
       );
-      &[data-controls=prev]{
-        float: left;
+      &@{nav-prev__class}{
+        left: 0;
+        &:before{
+          font-weight: inherit;
+        }
       }
-      &[data-controls=next]{
+      &@{nav-next__class}{
         ._lib-button-icon (
           @_button-icon-use: @nav-icon__use,
           @_icon-font-content: @nav-icon__next__content,
@@ -254,13 +279,71 @@
           @_icon-font-position: @nav-icon__position,
           @_icon-font-text-hide: @nav-icon__text-hide
         );
-        float: right;
+        right: 0;
+        &:before{
+          font-weight: inherit;
+        }
+      }
+
+      & when not (@nav__disabled__class = false){
+        &@{nav__disabled__class}{
+          .lib-css(opacity, @nav__disabled__opacity);
+        }
+      }
+
+      & when not (@nav__active__class = false) {
+        &@{nav__active__class} {
+          .dna-carousel-navigation-variant(
+            @_button-font-family: false,
+            @_button-font-size: false,
+            @_button-font-weight: false,
+            @_button-cursor: false,
+            @_button-display: false,
+            @_button-disabled-opacity: false,
+            @_button-line-height: false,
+            @_button-width: false,
+            @_button-margin: false,
+            @_button-padding: false,
+            @_button-color: @nav__active__color,
+            @_button-background: @nav__active__background,
+            @_button-border: @nav__active__border,
+
+            @_button-color-hover: false,
+            @_button-background-hover: false,
+            @_button-border-hover: false,
+            @_button-color-active: false,
+            @_button-background-active: false,
+            @_button-border-active: false,
+
+            @_button-gradient: false,
+            @_button-gradient-direction: false,
+            @_button-gradient-color-start: @nav__active__gradient-color-start,
+            @_button-gradient-color-end: @nav__active__gradient-color-end,
+            @_button-gradient-color-start-hover: false,
+            @_button-gradient-color-end-hover: false,
+            @_button-gradient-color-start-active: false,
+            @_button-gradient-color-end-active: false,
+
+            @_button-icon-use: false,
+            @_button-font-content: false,
+            @_button-icon-font: false,
+            @_button-icon-font-size: false,
+            @_button-icon-font-line-height: false,
+            @_button-icon-font-color: false,
+            @_button-icon-font-color-hover: false,
+            @_button-icon-font-color-active: false,
+            @_button-icon-font-margin: false,
+            @_button-icon-font-vertical-align: false,
+            @_button-icon-font-position: false,
+            @_button-icon-font-text-hide: false
+          );
+        }
       }
     }
   }
-  .tns-nav{
+  @{dots-container__class}{
     .lib-css(text-align, @dots__align);
-    [aria-controls], [data-action]{
+    @{dots-dot__class}{
       .dna-carousel-dots-variant(
         @_button-font-family: @dots__font-family,
         @_button-font-size: @dots__font-size,
@@ -275,6 +358,7 @@
         @_button-color: @dots__color,
         @_button-background: @dots__background,
         @_button-border: @dots__border,
+        @_button-border-radius: @dots__border-radius,
 
         @_button-color-hover: @dots__hover__color,
         @_button-background-hover: @dots__hover__background,
@@ -306,7 +390,7 @@
         @_button-icon-font-text-hide: @dots-icon__text-hide
       );
 
-      &.tns-nav-active{
+      &@{dots-dot-active__class}{
         .lib-css(background, @dots__active__background);
         .lib-css(border, @dots__active__border);
         .lib-css(color, @dots__active__color);
@@ -314,6 +398,18 @@
     }
   }
 }
+
+.dna-carousel-navigation(
+  @nav__class: @carousel-nav__class
+) when(@nav__class){
+  position: absolute;
+  height: 0;
+  top: 50%;
+  left:0;
+  right: 0;
+  .lib-css(z-index, @z-index-1);
+}
+
 .dna-carousel-navigation-variant(
   @_button-font-family: @carousel-nav__font-family,
   @_button-font-size: @carousel-nav__font-size,
@@ -418,6 +514,7 @@
   @_button-color: @carousel-dots__color,
   @_button-background: @carousel-dots__background,
   @_button-border: @carousel-dots__border,
+  @_button-border-radius: @carousel-dots-dot__border-radius,
 
   @_button-color-hover: @carousel-dots__hover__color,
   @_button-background-hover: @carousel-dots__hover__background,
@@ -492,4 +589,5 @@
           @_button-icon-font-position,
           @_button-icon-font-text-hide
   );
+  .lib-css(border-radius, @_button-border-radius);
 }

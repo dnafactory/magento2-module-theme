@@ -1,17 +1,17 @@
 /**
  * Standalone tiny-slider implementation
  * It wraps the original tiny-slider script into an instantiable M2 component
+ * @deprecated
  */
 define([
-    'uiClass',
+    'DNAFactory_Theme/js/dna-carousel',
     'DNAFactory_Theme/js/vendor/tiny-slider/dist/tiny-slider',
     'domReady!' // Tiny Slider needs to be loaded on dom ready
-], function(Class){
+], function(BaseCarousel){
     'use strict';
 
-    return Class.extend({
+    return BaseCarousel.extend({
         defaults: {
-            slider: null,
             options:{
                 container: '.slider',
                 mode: 'carousel',
@@ -49,14 +49,14 @@ define([
                 animateOut: 'tns-fadeOut',
                 animateNormal: 'tns-normal',
                 animateDelay: false,
-                loop: true,
+                loop: false,
                 rewind: false,
                 autoHeight: false,
                 responsive: false,
                 lazyload: false,
                 lazyloadSelector: '.tns-lazy-img',
                 touch: true,
-                mouseDrag: false,
+                mouseDrag: true,
                 swipeAngle: 15,
                 nested: false,
                 preventActionWhenRunning: false,
@@ -67,11 +67,14 @@ define([
                 nonce: false
             }
         },
-        initialize: function(options, element){
-            this._super(options, element);
-            this.options['container'] = element;
-            this.slider = tns(this._mapOptions(this.options));
-            requirejs(['jquery'],$ => $(element).data(this.slider));
+        _instantiate(){
+            this.options['container'] = this.element;
+            let instance = tns(this.options);
+            requirejs(['jquery'],$ => {
+                $(this.element).data(instance)
+                    .closest('.tns-outer').addClass('dna-carousel');
+            });
+            return instance;
         },
         _mapOptions(base = this.options){
             var mapping = {};
@@ -98,27 +101,19 @@ define([
             }
             return Object.assign(base, mapping);
         },
-
-        /**
-         * It gets the current carousel implementation
-         * @returns {*}
-         */
-        getInstance(){
-            return this.slider;
-        },
         /**
          * Toggles the play/autoplay state
          * @returns {*}
          */
         play(){
-            return this.getInstance().play();
+            return this._super().play();
         },
         /**
          * Toggles the pause state
          * @returns {*}
          */
         pause(){
-            return this.getInstance.pause();
+            return this._super().pause();
         },
         /**
          * Manually skip to slide n
@@ -126,21 +121,21 @@ define([
          * @returns {*}
          */
         goToSlide(n){
-            return this.getInstance().goToSlide(n);
+            return this._super().goToSlide(n);
         },
         /**
          * Refresh/reload the current carousel instance
          * @returns {*}
          */
         refreshInstance(){
-            return this.getInstance().refresh();
+            return this._super().refresh();
         },
         /**
          * Destroy the current carousel instance
          * @returns {*}
          */
         destroyInstance(){
-            return this.getInstance().destroy();
+            return this._super().destroy();
         },
         /**
          * Rebuild the current carousel instance
@@ -154,7 +149,7 @@ define([
          * @returns {*}
          */
         getInstanceStatus(){
-            return this.getInstance().getInfo();
+            return this._super().getInfo();
         }
     });
 });

@@ -6,8 +6,8 @@
     [data-content-type='products'], [data-appearance='carousel'], [data-content-type='slider'] {
         visibility: visible!important;
 
-        &.tns-slider.tns-carousel, .tns-slider.tns-carousel {
-            .tns-item {
+        &.dna-carousel, .dna-carousel {
+            .pagebuilder-slide-wrapper {
                 &:first-child {
                     visibility: visible;
                 }
@@ -20,24 +20,9 @@
             }
         }
 
-        .tns-item {
+        .pagebuilder-slide-wrapper {
             &:first-child {
                 visibility: hidden;
-            }
-        }
-
-        &.center-mode {
-            .tns-item {
-                opacity: .5;
-                transition: all 300ms ease;
-
-                &.tns-slide-active {
-                    opacity: 1;
-                }
-
-                &:hover {
-                    opacity: 1;
-                }
             }
         }
     }

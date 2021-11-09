@@ -7,41 +7,53 @@
  */
 
 define([
-    'dnaCarouselInstance'
+    'uiClass'
 ], function (carousel) {
     'use strict';
 
     return carousel.extend({
-        defaults:{
-            options: {
-                dots:true,
-                loop: false,
-                mouseDrag: true
-            }
+        slider: null,
+        element: null,
+
+        initialize: function(options, element) {
+            if(element.length)
+                element = element[0];
+
+            this._super(options, element);
+            this.element = element;
+            this.options = this._mapOptions(this.options);
+            this.slider = this._instantiate(this.options, this.element);
+            return this;
         },
-        _instantiate: function(options, element){
-            this._super({options: options}, element);
+        _onInit: function(){
+            this.element.dispatchEvent(new CustomEvent('dna-init', { detail: this }));
+        },
+        _mapOptions: function(options){
+            return options;
+        },
+        _instantiate(){
+            return this;
         },
         /**
          * It gets the current carousel implementation
          * @returns {*}
          */
         getInstance(){
-            return this._super();
+            return this.slider;
         },
         /**
          * Toggles the play/autoplay state
          * @returns {*}
          */
         play(){
-            return this._super();
+            return this.getInstance();
         },
         /**
          * Toggles the pause state
          * @returns {*}
          */
         pause(){
-            return this._super();
+            return this.getInstance();
         },
         /**
          * Manually skip to slide n
@@ -49,35 +61,36 @@ define([
          * @returns {*}
          */
         goToSlide(n){
-            return this._super();
+            return this.getInstance();
         },
         /**
          * Refresh/reload the current carousel instance
          * @returns {*}
          */
         refreshInstance(){
-            return this._super();
+            return this.getInstance();
         },
         /**
          * Destroy the current carousel instance
          * @returns {*}
          */
         destroyInstance(){
-            return this._super();
+            return this.getInstance();
         },
         /**
          * Rebuild the current carousel instance
          * @returns {*}
          */
         rebuildInstance(){
-            return this._super();
+            this.destroyInstance();
+            return this._instantiate();
         },
         /**
          * Retrieves the current carousel instance status
          * @returns {*}
          */
         getInstanceStatus(){
-            return this._super();
+            return this.getInstance();
         }
     });
 });

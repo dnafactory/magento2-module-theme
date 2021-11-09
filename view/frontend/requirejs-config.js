@@ -1,18 +1,18 @@
 var config = {
     map: {
         '*': {
-            /*dnaQtyController: 'DNAFactory_Theme/js/quantity-controller',*/
             responsiveAccordion: 'DNAFactory_Theme/js/responsive-accordion',
-            dnaCarousel: 'DNAFactory_Theme/js/dna-carousel',
             /* Replace tinySlider with your custom slider instance */
-            dnaCarouselInstance: 'tinySlider',
+            dnaCarousel: 'swiperCarousel',
         }
     },
     paths:{
-        tinySlider: 'DNAFactory_Theme/js/carousels/tiny-slider',
-        owlCarousel: 'DNAFactory_Theme/js/carousels/owl-carousel',
+        tinySlider: 'DNAFactory_Theme/js/carousels/tiny-slider', /** @deprecated */
+        owlCarousel: 'DNAFactory_Theme/js/carousels/owl-carousel', /** @deprecated */
         slickCarousel: 'DNAFactory_Theme/js/carousels/slick-carousel',
-        slick: 'DNAFactory_Theme/js/vendor/slick/slick.min'
+        slick: 'DNAFactory_Theme/js/vendor/slick/slick.min',
+        swiperCarousel: 'DNAFactory_Theme/js/carousels/swiper-carousel',
+        swiper: 'DNAFactory_Theme/js/vendor/swiper/js/swiper-bundle',
     },
     config: {
         mixins: {

@@ -1,6 +1,7 @@
 /**
  * Standalone tiny-slider implementation
  * It wraps the original tiny-slider script into an instantiable M2 component
+ * @deprecated
  */
 define(function(){
     'use strict';

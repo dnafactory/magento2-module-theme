@@ -1,28 +1,25 @@
 /**
- * Standalone tiny-slider implementation
+ * Standalone Slick carousel implementation
  * It wraps the original tiny-slider script into an instantiable M2 component
  */
 define([
-    'uiClass',
+    'DNAFactory_Theme/js/dna-carousel',
     'jquery',
     'underscore',
     'slick'
-], function(Class, $, _){
+], function(BaseCarousel, $, _){
     'use strict';
 
-    return Class.extend({
-        defaults: {
-            slider: null,
-            options:{
-            }
-        },
+    return BaseCarousel.extend({
+        updateDebounced: null,
         initialize: function(options, element){
-            this._super(options, element);
-            this.element = element;
-            var updateDebounced = _.debounce(this._mapClasses.bind(this), 500, false);
-            $(element).on('setPosition', updateDebounced);
-            this.slider = $(element).slick(this._mapOptions(this.options));
-
+            this.updateDebounced = _.debounce(this._mapClasses.bind(this), 500, false);
+            return this._super(options, element);
+        },
+        _instantiate: function(){
+            $(this.element).on('setPosition', this.updateDebounced);
+            $(this.element).slick(this.options);
+            return $(this.element);
         },
         _mapClasses(){
             $('.slick-slide', this.element).each((index, item) => {
@@ -60,27 +57,19 @@ define([
             }
             return Object.assign(base, mapping);
         },
-
-        /**
-         * It gets the current carousel implementation
-         * @returns {*}
-         */
-        getInstance(){
-            return this.slider;
-        },
         /**
          * Toggles the play/autoplay state
          * @returns {*}
          */
         play(){
-            return $(this.element).slick('slickPlay');//this.getInstance().play();
+            return this._super().slick('slickPlay');
         },
         /**
          * Toggles the pause state
          * @returns {*}
          */
         pause(){
-            return this.getInstance.pause();
+            return this._super().slick('slickPause');
         },
         /**
          * Manually skip to slide n
@@ -88,35 +77,29 @@ define([
          * @returns {*}
          */
         goToSlide(n){
-            return this.getInstance().goToSlide(n);
+            return this._super().slick('slickGoTo', n);
         },
         /**
          * Refresh/reload the current carousel instance
          * @returns {*}
          */
         refreshInstance(){
-            return this.getInstance().refresh();
+            return this._super().slick('slickSetOption', '','', true);
         },
         /**
          * Destroy the current carousel instance
          * @returns {*}
          */
         destroyInstance(){
-            return this.getInstance().destroy();
-        },
-        /**
-         * Rebuild the current carousel instance
-         * @returns {*}
-         */
-        rebuildInstance(){
-            return this.getInstance().rebuild();
+            $(this.element).off('setPosition', this.updateDebounced);
+            return this._super().slick('unslick');
         },
         /**
          * Retrieves the current carousel instance status
          * @returns {*}
          */
         getInstanceStatus(){
-            return this.getInstance().getInfo();
+            return this._super().slick('getSlick');
         }
     });
 });

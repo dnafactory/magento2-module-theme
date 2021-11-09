@@ -1,6 +1,6 @@
 <?php
     function addEmmetCode($code){
-        echo "<div class='full-width-container bg-light'><div class='page-main'><div class='border-0 mt-3 mb-5' data-mage-init='{\"collapsible\":{
+        echo "<div class='full-width-container bg-light mt-3 mb-5'><div class='page-main'><div class='border-0' data-mage-init='{\"collapsible\":{
             \"openedState\": \"active\",
             \"collapsible\": true,
             \"active\": false,
@@ -147,30 +147,32 @@
 
 <h3>Full Width/Breakout Carousel</h3>
 <div class="row d-block">
-    <div data-mage-init='{ "dnaCarousel": { "middleWrapperClass":"full-width-container overflow-hidden", "innerWrapperClass":"mx-auto container-fixed-lg", "items": 2, "dots":true, "controls":false, "responsive": { "sm":{ "items":3, "dots":false, "controls":true }, "md":{ "items":4 }, "lg":{ "items":6 } } } }' class="slider flex-row d-flex flex-nowrap overflow-hidden">
-        <div class="slide col-6 col-sm-4 col-md-3 col-lg-2 d-inline-flex">
-            <div class="flex-fill text-white bg-success py-5 px-4">Slide 1</div>
-        </div>
-        <div class="slide col-6 col-sm-4 col-md-3 col-lg-2 d-inline-flex">
-            <div class="flex-fill bg-warning py-5 px-4">Slide 2</div>
-        </div>
-        <div class="slide col-6 col-sm-4 col-md-3 col-lg-2 d-inline-flex">
-            <div class="flex-fill text-white bg-primary py-5 px-4">Slide 3</div>
-        </div>
-        <div class="slide col-6 col-sm-4 col-md-3 col-lg-2 d-inline-flex">
-            <div class="flex-fill text-white bg-secondary py-5 px-4">Slide 4</div>
-        </div>
-        <div class="slide col-6 col-sm-4 col-md-3 col-lg-2 d-inline-flex">
-            <div class="flex-fill text-white bg-success py-5 px-4">Slide 5</div>
-        </div>
-        <div class="slide col-6 col-sm-4 col-md-3 col-lg-2 d-inline-flex">
-            <div class="flex-fill bg-warning py-5 px-4">Slide 6</div>
-        </div>
-        <div class="slide col-6 col-sm-4 col-md-3 col-lg-2 d-inline-flex">
-            <div class="flex-fill text-white bg-primary py-5 px-4">Slide 7</div>
-        </div>
-        <div class="slide col-6 col-sm-4 col-md-3 col-lg-2 d-inline-flex">
-            <div class="flex-fill text-white bg-secondary py-5 px-4">Slide 8</div>
+    <div class="full-width-container">
+        <div data-mage-init='{ "dnaCarousel": { "middleWrapperClass":"full-width-container overflow-hidden", "innerWrapperClass":"mx-auto container-fixed-lg", "items": 2, "dots":true, "controls":false, "responsive": { "sm":{ "items":3, "dots":false, "controls":true }, "md":{ "items":4 }, "lg":{ "items":6 } } } }' class="slider flex-row d-flex flex-nowrap">
+            <div class="slide col-6 col-sm-4 col-md-3 col-lg-2 d-inline-flex">
+                <div class="flex-fill text-white bg-success py-5 px-4">Slide 1</div>
+            </div>
+            <div class="slide col-6 col-sm-4 col-md-3 col-lg-2 d-inline-flex">
+                <div class="flex-fill bg-warning py-5 px-4">Slide 2</div>
+            </div>
+            <div class="slide col-6 col-sm-4 col-md-3 col-lg-2 d-inline-flex">
+                <div class="flex-fill text-white bg-primary py-5 px-4">Slide 3</div>
+            </div>
+            <div class="slide col-6 col-sm-4 col-md-3 col-lg-2 d-inline-flex">
+                <div class="flex-fill text-white bg-secondary py-5 px-4">Slide 4</div>
+            </div>
+            <div class="slide col-6 col-sm-4 col-md-3 col-lg-2 d-inline-flex">
+                <div class="flex-fill text-white bg-success py-5 px-4">Slide 5</div>
+            </div>
+            <div class="slide col-6 col-sm-4 col-md-3 col-lg-2 d-inline-flex">
+                <div class="flex-fill bg-warning py-5 px-4">Slide 6</div>
+            </div>
+            <div class="slide col-6 col-sm-4 col-md-3 col-lg-2 d-inline-flex">
+                <div class="flex-fill text-white bg-primary py-5 px-4">Slide 7</div>
+            </div>
+            <div class="slide col-6 col-sm-4 col-md-3 col-lg-2 d-inline-flex">
+                <div class="flex-fill text-white bg-secondary py-5 px-4">Slide 8</div>
+            </div>
         </div>
     </div>
 </div>

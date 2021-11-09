@@ -1,0 +1,24 @@
+@carousel-stage__class: ~'.swiper-wrapper';
+@carousel-nav__class: ~'';
+@carousel-nav-controls__class: ~'[class^="swiper-button-"]';
+@carousel-nav-prev__class: ~'.swiper-button-prev';
+@carousel-nav-next__class: ~'.swiper-button-next';
+@carousel-nav-disabled__class: ~".swiper-button-disabled";
+@carousel-nav-active__class: false;
+@carousel-dots-container__class: ~'.swiper-pagination';
+@carousel-dots-dot__class: ~' .swiper-pagination-bullet';
+@carousel-dots-dot-active__class: ~'.swiper-pagination-bullet-active';
+
+&when(@media-common = true){
+  :root{
+    .lib-css(--swiper-theme-color, @theme__color__primary);
+
+    .lib-css(--swiper-pagination-color, @carousel-dots__background);
+    .lib-css(--swiper-pagination-bullet-size, @carousel-dots-icon__font-size);
+    .lib-css(--swiper-pagination-bullet-width, @carousel-dots-icon__font-size);
+    .lib-css(--swiper-pagination-bullet-height, @carousel-dots-icon__font-size);
+    .lib-css(--swiper-pagination-bullet-inactive-color, @carousel-dots-icon__color);
+    .lib-css(--swiper-pagination-bullet-inactive-opacity, @carousel-dots__disabled__opacity);
+    --swiper-pagination-bullet-opacity: 1;
+  }
+}

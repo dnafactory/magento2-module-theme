@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="DNAFactory_Theme::js/vendor/swiper/css/swiper-bundle.css" />
+        <!-- <css src="DNAFactory_Theme::css/carousel-base/tiny-slider-core.css" /> (deprecated) -->
+    </head>
+</page>

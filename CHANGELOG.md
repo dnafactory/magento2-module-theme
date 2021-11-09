@@ -1,3 +1,10 @@
+## v1.1.0
+Added:
+- Swiper Carousel
+Deprecated:
+- Tiny Slider
+- OWL Carousel
+
 ## v0.0.1
 Added:
 - Configuraion Helper, used to handle theme specific configurations;

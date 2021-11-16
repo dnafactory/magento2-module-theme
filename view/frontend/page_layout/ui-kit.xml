@@ -4,9 +4,10 @@
     <referenceContainer name="content">
         <block class="Magento\Framework\View\Element\Template" name="typography" template="DNAFactory_Theme::demo/typography.phtml" />
         <block class="Magento\Framework\View\Element\Template" name="links" template="DNAFactory_Theme::demo/links.phtml" />
-        <block class="Magento\Framework\View\Element\Template" name="tabs" template="DNAFactory_Theme::demo/tabs.phtml" />
+        <block class="Magento\Framework\View\Element\Template" name="demo.messages" after="links" template="DNAFactory_Theme::demo/messages.phtml" />
         <block class="Magento\Framework\View\Element\Template" name="buttons" template="DNAFactory_Theme::demo/buttons.phtml" />
         <block class="Magento\Framework\View\Element\Template" name="inputs" template="DNAFactory_Theme::demo/inputs.phtml" />
+        <block class="Magento\Framework\View\Element\Template" name="tabs" template="DNAFactory_Theme::demo/tabs.phtml" />
         <block class="Magento\Framework\View\Element\Template" name="slider" template="DNAFactory_Theme::demo/slider.phtml" />
     </referenceContainer>
 </layout>

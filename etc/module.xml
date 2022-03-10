@@ -3,6 +3,7 @@
     <module name="DNAFactory_Theme" setup_version="1.1.0">
         <sequence>
             <module name="Magento_Theme" />
+            <module name="Magento_Backend" />
             <module name="Magento_Ui" />
             <module name="Magento_Catalog" />
             <module name="Magento_Checkout" />

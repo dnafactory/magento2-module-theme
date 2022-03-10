@@ -1,0 +1,83 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php
+/* @var $block \Magento\Backend\Block\Widget\Form\Renderer\Fieldset\Element */
+/* @var $secureRenderer \Magento\Framework\View\Helper\SecureHtmlRenderer */
+$element = $block->getElement();
+$note = $element->getNote() ? '<div class="note admin__field-note" id="' . $element->getId() . '-note">' . $element->getNote() . '</div>' : '';
+$elementBeforeLabel = $element->getExtType() == 'checkbox admin__control-checkbox' || $element->getExtType() == 'radio admin__control-radio';
+$addOn = ($element->getBeforeElementHtml() || $element->getAfterElementHtml()) && !$element->getNoWrapAsAddon();
+$fieldId = ($element->getHtmlContainerId()) ? ' id="' . $element->getHtmlContainerId() . '"' : '';
+$fieldClass = "admin__field field field-{$element->getId()} {$element->getCssClass()}";
+$fieldClass .= ($elementBeforeLabel) ? ' choice' : '';
+$fieldClass .= ($addOn) ? ' with-addon' : '';
+$fieldClass .= ($element->getRequired()) ? ' required _required' : '';
+$fieldClass .= ($note) ? ' with-note' : '';
+$fieldClass .= (!$element->getLabelHtml()) ? ' no-label' : '';
+
+$fieldAttributes = $fieldId . ' class="' . $fieldClass . '" '
+    . $block->getUiId('form-field', $element->getId())
+    . ($element->getFieldExtraAttributes() ? ' ' . $element->getFieldExtraAttributes() : '');
+?>
+
+<?php if (!$element->getNoDisplay()) : ?>
+    <?php if ($element->getType() == 'hidden') : ?>
+        <?= $element->getElementHtml() ?>
+    <?php else : ?>
+    <div<?= /* @noEscape */ $fieldAttributes ?>>
+        <?php if ($elementBeforeLabel) : ?>
+            <?= $element->getElementHtml() ?>
+            <?= $element->getLabelHtml('', $element->getScopeLabel()) ?>
+            <?= /* @noEscape */ $note ?>
+        <?php else : ?>
+            <?= $element->getLabelHtml('', $element->getScopeLabel()) ?>
+            <div class="admin__field-control control">
+                <?= /* @noEscape */ ($addOn) ? '<div class="admin__field">' . $element->getElementHtml() . '</div>' : $element->getElementHtml() ?>
+                <?= /* @noEscape */ $note ?>
+            </div>
+        <?php endif; ?>
+    </div>
+    <?php endif; ?>
+    <?php
+    $value = $element->getData('value');
+    $elementId = $element->getHtmlId();
+    $scriptString = <<<script
+require(["jquery","jquery/colorpicker/js/colorpicker"], function ($) {
+                $(document).ready(function () {
+                    var \$el = $("#${elementId}"),
+                        \$spBox = $("<span class='sp-replacer sp-light'><span class='sp-preview'></span></span>"),
+                        \$spPreview = $("<span class='sp-preview-inner'></span>");
+
+                    \$el.parent().addClass('admin__control-addon');
+
+                    \$spBox.on("click", () => \$el.click());
+                    $(".sp-preview",\$spBox).append(\$spPreview);
+                    \$el.before(\$spBox);
+
+                    \$spPreview.css("backgroundColor", "${value}");
+
+                    // Attach the color picker
+                    \$el.ColorPicker({
+                        color: "${value}",
+                        onChange: function (hsb, hex, rgb) {
+                            \$spPreview.css("backgroundColor", "#" + hex);
+                            \$el.val("#" + hex);
+                        }
+                    });
+                });
+            });
+script;
+
+    $styles = <<<STYLE
+.colorpicker{
+z-index: 999; // fix: evita che altri input impediscano la selezione del colore
+}
+STYLE;
+    ?>
+    <?= /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false); ?>
+    <?= /* @noEscape */ $secureRenderer->renderTag('style', [], $styles, false); ?>
+<?php endif; ?>

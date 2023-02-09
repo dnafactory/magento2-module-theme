@@ -39,6 +39,10 @@ define([
             if('items' in base){
                 mapping.slidesPerView = base.items;
             }
+            if('autoplayTimeout' in base){
+                mapping.autoplay = { delay : base.autoplayTimeout };
+                delete base.autoplayTimeout;
+            }
             if('nav' in base){
                 if(base.nav === true && !base._bp)
                     mapping.navigation = this.defaults.navigation;
